@@ -9,3 +9,9 @@ Tasks:
 	Finish project proposal for >> "Desktop clearner" 
 	Provide proof of concepts on possibility of project
 ///////////
+
+All tasks you need to do, 
+==============================================
+Unfinished:
+	>> Check from user stories.
+==============================================

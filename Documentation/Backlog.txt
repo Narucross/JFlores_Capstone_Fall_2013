@@ -20,3 +20,7 @@ Unfinished:
 Ideas for achieving drag and drop.
 >> Processes
 > By going throught System.diagnostics and processes class I am hoping to get the type of the windows for the application that is currently running
+
+Resources:
+http://mwinapi.sourceforge.net/
+www.pinvoke.net

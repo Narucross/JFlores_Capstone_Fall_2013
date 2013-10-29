@@ -11,7 +11,7 @@
 *.csproj
 Properties/
 App.config
-
+Vendor/
 
 # Build results
 

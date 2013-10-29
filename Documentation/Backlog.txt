@@ -13,6 +13,8 @@ Tasks:
 All tasks you need to do, 
 ==============================================
 Unfinished:
+	>> Multi-Select :: Able to focus on one or more applications at once.
+	>> Same height and with button (Multi-Select)
 	>> Check from user stories.
 ==============================================
 
@@ -24,3 +26,19 @@ Ideas for achieving drag and drop.
 Resources:
 http://mwinapi.sourceforge.net/
 www.pinvoke.net
+
+\\============================================
+Week 4:
+
+Put a gui in:
+-- Show all the applications you can run
+Stretch goal:
+-- Save states
+
+Saving Templates:
+-- Personally I think formats and saved applications should be kept separate in order to give more fluid control over the program.
+-- For instance in saved applications we can have a reference to a known template, and store a default template/error catch if the template we want 
+	is not found in the archive. 
+-- How will this improve functionality? 
+	-- Templates won't need to be repeated/(additionally stored) for different types of applications
+	-- We can have "quick-Change" Templates, where upon selecting multiple applications the user can quickly swap out different formats

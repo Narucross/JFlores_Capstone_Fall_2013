@@ -1,0 +1,57 @@
+string  savedApplicationsSyntax = "{{ {0}TempateName{0}:{0}{1}{0}, {0}SavedWindows{0}:[ {2} ] }}";
+
+
+string windowSyntax = "{{ {0}WindowProcessName{0}:{0}{1}{0}, {0}WindowTempateNumber{0}:{2}, {0}Width{0}:{3}, {0}Height{0}:{4}, {0}Pos_X{0}:{5}, {0}Pos_Y{0}:{6} }}";
+
+public String convertWindowToSyntax(SavedWindow win){
+	return String.Format( "\"", windowSyntax,win.WindowProcessName, win.WindowTempateNumber,win.Width, win.Height, win.Pos_X, win.Pos_Y );
+}
+
+public String applicationSyntaxString(String templateName, SavedWindows[] windows){
+	string returnedString = "";
+	if(windows.Length <= 0){
+		returnedString = String.format(savedApplicationsSyntax, "\"", templateName, , convertWindowToSyntax(windows[0]) );
+	}else 
+	if(windows.Length > 1){
+		StringBuilder builder = new StringBuilder();
+		
+			String formated = convertWindowToSyntax( windows[0] );
+			builder.Append(formated);
+		for( int i=1; i<windows.Length; i++ ){
+			builder.append(",");
+			formated = convertWindowToSyntax( windows[i] );
+			bulder.Append(formated);
+		}
+		returnedString = String.Format( savedApplicationsSyntax,"\"",templateName, builder.ToString() );
+	}
+	return returnedString;
+}
+
+// =========================================================================
+// UN-Used Methods or depreciated/Deleted
+// =========================================================================
+        public static void testPrint(SavedWindow window1)
+        {
+            String s = " Lets try to do something interesting: {{ [" +
+                "\n{0} is the lonest :number that you ever knew\n" +
+                "Two can be as bad as {0}: its the lonest number since the number {0}\n" +
+                "]{1} now we have finished\n}}";
+            s = String.Format(s, "One", "We finished");
+            Console.WriteLine("\n\n" + s + "\n\n");
+
+            s =
+"{{ {0}TempateName{0}:{0}{1}{0}, {0}SavedWindows{0}:[ {{ {0}WindowProcessName{0}:{0}{2}{0}, {0}WindowTempateNumber{0}:{3}, {0}Width{0}:{4}, {0}Height{0}:{5}, {0}Pos_X{0}:{6}, {0}Pos_Y{0}:{7} }} ] }}";
+            object[] dargs = new object[] { "\"", "Template-Dakara", window1.WindowProcessName, window1.WindowTempateNumber, window1.Width, window1.Height, window1.Pos_X, window1.Pos_Y };
+            string rewrite = String.Format(s, dargs);
+            SavedAppications dakara = JsonConvert.DeserializeObject<SavedAppications>(rewrite);
+            String convert = JsonConvert.SerializeObject(dakara);
+            bool something = convert.Equals(rewrite);
+            if (something)
+            {
+                Console.WriteLine("\n\nWorks\n\n");
+            }
+            else
+            {
+                Console.WriteLine("\n\nDidn't work\n\n");
+            }
+        }

@@ -15,6 +15,7 @@ All tasks you need to do,
 Unfinished:
 	>> Multi-Select :: Able to focus on one or more applications at once.
 	>> Same height and with button (Multi-Select)
+	>> Create a Desktop, right-click extension or executable/"open with" files that makes certain formats available on start up. The idea is to keep DXC light and only execute when nessessary. "Do task then clean up kind of application"
 	>> Check from user stories.
 ==============================================
 
@@ -27,7 +28,7 @@ Resources:
 http://mwinapi.sourceforge.net/
 www.pinvoke.net
 http://james.newtonking.com/json
-
+http://www.wpf-tutorial.com/about-wpf/wpf-vs-winforms/
 \\============================================
 Week 4:
 

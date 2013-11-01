@@ -44,3 +44,21 @@ Saving Templates:
 -- How will this improve functionality? 
 	-- Templates won't need to be repeated/(additionally stored) for different types of applications
 	-- We can have "quick-Change" Templates, where upon selecting multiple applications the user can quickly swap out different formats
+
+Week 4 problems:
+	>> For now templates are saved in a static place, need to find a way to make it closer to the directory
+		>> One thing to try is to create an executeable and test it outside of visual studios, 
+	>> Couldn't get the bean's equals method to work on an "equivalence level" need to find out what that is all about but it seems to be about c# rather then the methods
+
+\\============================================
+Week 5
+0) Make-up : Application(s) presentation (that list of all applications)
+ 
+1) Additional GUI enchancements: 
+		Drag and Draw function (replace basic)
+		
+2) Start up applications through command line
+
+Stretch:
+	Executable-First Step:
+		First kind of executable that takes the first 4 applications on APL and re-sizes them.

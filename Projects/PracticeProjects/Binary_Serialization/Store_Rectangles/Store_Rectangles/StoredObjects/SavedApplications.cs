@@ -24,6 +24,32 @@ namespace Store_Rectangles
         public String TempateName { get; set; }
         public List<SavedWindow> SavedWindows { get; set; }
 
+
+        public override bool Equals(object obj)
+        {
+            bool returnedValue = false;
+            if (obj is SavedAppications)
+            {
+                SavedAppications variable = (SavedAppications)obj;
+                if (variable.TempateName.Equals(this.TempateName))
+                {
+                    //Lists
+                    bool containsAll = true;
+                    for (int i = 0; i < this.SavedWindows.Count && containsAll; i++)
+                    {
+                        if (!variable.SavedWindows.Contains(this.SavedWindows.ElementAt(i))) {
+                            containsAll = false;
+                        }
+                    }
+                }
+            }
+            return returnedValue;
+        }
+        public override int GetHashCode()
+        {
+            return 1;
+        }
+
         #region convience Methods
 
         public void Add(SavedWindow newWindow)

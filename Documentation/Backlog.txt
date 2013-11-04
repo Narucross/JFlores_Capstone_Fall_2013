@@ -56,8 +56,9 @@ Week 5
  
 1) Additional GUI enchancements: 
 		Drag and Draw function (replace basic)
+		>> Than the precursor to drag and drop
 		
-2) Start up applications through command line
+2) Saved programs in varied states
 
 Stretch:
 	Executable-First Step:

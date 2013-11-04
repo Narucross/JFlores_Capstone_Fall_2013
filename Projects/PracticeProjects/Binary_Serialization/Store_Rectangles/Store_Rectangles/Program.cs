@@ -26,6 +26,7 @@ namespace Store_Rectangles
             applicationTest.Add(window3);
             string s = JsonConvert.SerializeObject(applicationTest);
             Console.WriteLine(String.Format("The serialized Object is:\n{0}", s));
+            //WriteToFile(applicationTest);
             SavedAppications app2 = JsonConvert.DeserializeObject<SavedAppications>(s);
             if (applicationTest.Equals(app2)) {
                 Console.WriteLine("\n\nSuccess");

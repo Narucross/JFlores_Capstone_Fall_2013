@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Diagnostics.Process;
+
+
+namespace _1_ProofOfConcept_ProcessLeech
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+			Process[] processes = Process.GetProcessesByName("notepad.exe");
+			int i=0;
+			for(Process currentProcess in processes){
+				i++;
+				String message = "" + i
+					+ ".) For process: " + currentProcess.ProcessName +
+						" : type is :" + currentProcess.GetType().ToString();
+				Console.WriteLine(message);
+			}
+            Console.ReadLine();
+        }
+    }
+}

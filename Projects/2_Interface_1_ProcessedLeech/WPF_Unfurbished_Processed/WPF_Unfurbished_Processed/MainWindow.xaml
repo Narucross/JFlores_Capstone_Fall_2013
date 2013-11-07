@@ -1,7 +1,7 @@
-﻿<Window x:Class="Unfurbished_interface.MainWindow"
+﻿<Window x:Class="WPF_Unfurbished_Processed.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Basic Interface" Height="350" Width="525" >
+        Title="Processed_Unfurbished_interface" Height="350" Width="525">
     <Grid>
         <!-- Master Grid-->
         <StackPanel>
@@ -59,7 +59,7 @@
                     <Slider x:Name="Height_Slider" Minimum="100" Maximum="900" IsSnapToTickEnabled="True" TickFrequency="1"/>
                 </StackPanel>
             </Grid>
-            <Button Content="Submit" HorizontalAlignment="Left" Height="23"  VerticalAlignment="Bottom" Width="87" />
+            <Button x:Name="SubmitButton" Content="Submit" HorizontalAlignment="Left" Height="23"  VerticalAlignment="Bottom" Width="87" Click="RequestingMoveWindow" />
         </StackPanel>
     </Grid>
     <!--End of master grid-->

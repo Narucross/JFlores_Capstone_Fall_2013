@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections;
 
 namespace Unfurbished_interface
 {
@@ -23,6 +24,17 @@ namespace Unfurbished_interface
         public MainWindow()
         {
             InitializeComponent();
+            Applications_ListBox.ItemsSource = GetData();
+            
+        }
+
+        public ArrayList GetData() {
+            ArrayList list = new ArrayList();
+            for (int i =0; i <= 24; i++) {
+                list.Add("Item Number: " + i);
+            }
+            list.Add("Jingle All the way!! All what fun it is to ride on a one horse open slay!!!");
+                return list;
         }
     }
 }

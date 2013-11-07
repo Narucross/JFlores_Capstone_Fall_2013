@@ -63,3 +63,14 @@ Week 5
 Stretch:
 	Executable-First Step:
 		First kind of executable that takes the first 4 applications on APL and re-sizes them.
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

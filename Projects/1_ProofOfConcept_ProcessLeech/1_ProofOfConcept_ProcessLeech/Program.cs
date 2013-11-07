@@ -13,9 +13,9 @@ namespace _1_ProofOfConcept_ProcessLeech
         static void Main(string[] args)
         {
             Console.WriteLine("Starting program");
-            var notepadDoc1 = Process.GetProcessById(9288);
-            var notepadDoc2 = Process.GetProcessById(9312);
-            var notepadDoc3 = Process.GetProcessById(41056);
+            var notepadDoc1 = Process.GetProcessById(1176);
+            var notepadDoc2 = Process.GetProcessById(5428);
+            var notepadDoc3 = Process.GetProcessById(8940);
             Process[] processes = Process.GetProcesses();
             Console.WriteLine(""+processes.Length);
             var proc2  = (from cur in processes where !cur.MainWindowTitle.Equals("") select cur ).ToArray();
@@ -62,6 +62,7 @@ namespace _1_ProofOfConcept_ProcessLeech
             Console.WriteLine("=========\tBegin Test?\t=========");
             String s = Console.ReadLine();
             var ptrintReference = notepadProcess.MainWindowHandle;
+            
             if (s.Trim().Equals("quit",StringComparison.InvariantCultureIgnoreCase))
             {
                 Console.WriteLine("Wimp");

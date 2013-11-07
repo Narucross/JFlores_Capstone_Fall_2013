@@ -1,29 +1,65 @@
 ﻿<Window x:Class="Unfurbished_interface.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Basic Interface" Height="350" Width="525" >
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="29*"/>
-            <RowDefinition Height="131*"/>
-        </Grid.RowDefinitions>
-        <Label Content="Basic Interface" HorizontalAlignment="Left" Height="27" Margin="25,25,0,0" VerticalAlignment="Top" Width="141"/>
-        <Label Content="Focus:" HorizontalAlignment="Left" Height="26" Margin="25,57,0,0" VerticalAlignment="Top" Width="43" Grid.RowSpan="2"/>
-        <Label Content="FocusedName" HorizontalAlignment="Left" Height="27" Margin="25,38.517,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1"/>
-        <Label Content="Pos_X" HorizontalAlignment="Left" Margin="25,102.517,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="81,102.517,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="85" Grid.Row="1"/>
-        <Label Content="Pos_Y" HorizontalAlignment="Left" Height="27" Margin="25,148.517,0,0" VerticalAlignment="Top" Width="43" Grid.Row="1"/>
-        <TextBox HorizontalAlignment="Left" Height="27" Margin="81,148.517,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="85" Grid.Row="1"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="27" Margin="25,25,0,0" VerticalAlignment="Top" Width="87"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="262" Margin="342,34,0,0" VerticalAlignment="Top" Width="136" Grid.RowSpan="2">
-            <ScrollBar HorizontalAlignment="Left" Height="242" Margin="117,9,0,0" VerticalAlignment="Top" Width="8" RenderTransformOrigin="0.5,0.5"/>
-        </Border>
-        <Label Content="Applications" HorizontalAlignment="Left" Height="29" Margin="342,0,0,0" VerticalAlignment="Top" Width="136"/>
-        <Label Content="Width" HorizontalAlignment="Left" Height="26" Margin="190,102.517,0,0" VerticalAlignment="Top" Width="82" Grid.Row="1"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="254,102.517,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="65" Grid.Row="1"/>
-        <Label Content="Height" HorizontalAlignment="Left" Height="27" Margin="190,148.517,0,0" VerticalAlignment="Top" Width="82" Grid.Row="1"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="65" Margin="254,148.517,0,0" Grid.Row="1"/>
-        <Button Content="Submit" HorizontalAlignment="Left" Height="23" Margin="25,214.517,0,0" VerticalAlignment="Top" Width="87" Grid.Row="1"/>
+        <!-- Master Grid-->
+        <StackPanel>
+            <WrapPanel>
+                <Label Content="Focus:" HorizontalAlignment="Left" Height="26"  VerticalAlignment="Top" Width="43" />
+                <Label Content="FocusedName" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="100" />
+            </WrapPanel>
+            <Grid Margin="20,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="250" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="260"/>
+                    <ColumnDefinition Width="225"/>
+                </Grid.ColumnDefinitions>
+
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Column="1" Grid.Row="0">
+                    <ScrollViewer >
+                        <Label Content="Applications" HorizontalAlignment="Left" Height="29"  VerticalAlignment="Top" Width="136" />
+                        
+                    </ScrollViewer>
+                </Border>
+
+                <StackPanel Grid.Column="0" Grid.Row="0">
+                    <!--X _Position-->
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Pos_X" Width="Auto"/>
+                        <Label Content="Label" Margin="40,0,0,0" Width="auto"/>
+                    </StackPanel>
+                    <Slider Minimum="0" Maximum="1080" IsSnapToTickEnabled="True" TickFrequency="1"/>
+
+                    <!--Y _Position-->
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Pos_Y" Width="Auto"/>
+                        <Label Content="Label" Margin="40,0,0,0" Width="auto"/>
+                    </StackPanel>
+                    <Slider Minimum="0" Maximum="1080" IsSnapToTickEnabled="True" TickFrequency="1"/>
+
+                    <!--Width _Size-->
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Width" Width="Auto"/>
+                        <Label Content="Label" Margin="40,0,0,0" Width="auto"/>
+                    </StackPanel>
+                    <Slider Minimum="0" Maximum="1080" IsSnapToTickEnabled="True" TickFrequency="1"/>
+
+                    <!--Height _Size-->
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Height" Width="Auto"/>
+                        <Label Content="Label" Margin="40,0,0,0" Width="auto"/>
+                    </StackPanel>
+                    <Slider Minimum="0" Maximum="1080" IsSnapToTickEnabled="True" TickFrequency="1"/>
+                </StackPanel>
+            </Grid>
+            <Button Content="Submit" HorizontalAlignment="Left" Height="23"  VerticalAlignment="Bottom" Width="87" />
+        </StackPanel>
+
+
 
     </Grid>
+    <!--End of master grid-->
 </Window>

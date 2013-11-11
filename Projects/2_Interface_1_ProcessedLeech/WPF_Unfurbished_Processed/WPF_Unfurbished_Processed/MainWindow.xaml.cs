@@ -36,12 +36,13 @@ namespace WPF_Unfurbished_Processed
         {
             if (Applications_ListBox.SelectedItem is SavedActiveWindow)
             {
-                SavedWindow selectedWindow = Applications_ListBox.SelectedItem as SavedActiveWindow;
+                SavedActiveWindow selectedWindow = Applications_ListBox.SelectedItem as SavedActiveWindow;
                 int x = Convert.ToInt32(X_Slider.Value);
                 int y = Convert.ToInt32(Y_Slider.Value);
                 int width = Convert.ToInt32(Width_Slider.Value);
                 int height = Convert.ToInt32(Height_Slider.Value);
-                var process = LeechProcesses.getProcessByName(selectedWindow.WindowProcessName);
+                //var process = LeechProcesses.getProcessByName(selectedWindow.WindowProcessName);
+                var process = LeechProcesses.getProcessByWindowId(selectedWindow);
                 if (process != null)
                 {
                     LeechProcesses.moveWindow(process, x, y, width, height);
@@ -52,8 +53,6 @@ namespace WPF_Unfurbished_Processed
                 Console.WriteLine("Error somehow we got something outside out processes lists");
 
             }
-
-
         }
     }
-}
+}//endspace

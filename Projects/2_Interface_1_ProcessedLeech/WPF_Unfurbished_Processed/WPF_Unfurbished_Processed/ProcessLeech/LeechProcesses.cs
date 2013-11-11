@@ -16,10 +16,10 @@ namespace WPF_Unfurbished_Processed.ProcessLeech
 
         public static List<SavedActiveWindow> Get_Processes()
         {
-            IEnumerable<Process> currentProcesses ;
+            IEnumerable<Process> currentProcesses;
             List<SavedActiveWindow> savedProcesses = new List<SavedActiveWindow>();
 
-            currentProcesses = from cal in Process.GetProcesses() where (IntPtr.Zero!=cal.MainWindowHandle) select cal;
+            currentProcesses = filterUsableProcesses();
             foreach (Process proc in currentProcesses)
             {
                 SavedActiveWindow window = new SavedActiveWindow(proc);
@@ -28,18 +28,40 @@ namespace WPF_Unfurbished_Processed.ProcessLeech
             return savedProcesses;
         }
 
+        /// <summary>
+        /// This calls upon all processes, and we make sure that each processes doesn't have a main window handler of the static pointer Zero
+        /// This is so we know that the process at least has some zemblance of a window to work with, will expand this method as needed to ensure saftey
+        /// </summary>
+        private static IEnumerable<Process> filterUsableProcesses()
+        {
+            return from cal in Process.GetProcesses() where (IntPtr.Zero != (cal.MainWindowHandle)) orderby cal.ProcessName select cal;
+        }
+
+        /// <summary>
+        /// I guess depreciated.
+        /// This returns the first process with the same name as the string shot in.
+        /// </summary>
+        /// <param name="processName"></param>
+        /// <returns></returns>
         public static Process getProcessByName(String processName)
         {
             Process[] array = Process.GetProcessesByName(processName);
             return array[0] != null ? array[0] : null;
         }
 
-        public static Process getProcess(SavedActiveWindow window) {
+        /// <summary>
+        /// This returns the single process whose processID is equal to the savedWindow passed in.
+        /// </summary>
+        /// <param name="window"></param>
+        /// <returns></returns>
+        public static Process getProcessByWindowId(SavedActiveWindow window)
+        {
             if (window.processId != 0)
             {
                 return Process.GetProcessById(window.processId);
             }
-            return null;
+            else
+            { return null; }
         }
 
         public static void moveWindow(Process notepadProcess, int x, int y, int width, int height)

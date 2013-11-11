@@ -64,7 +64,20 @@ Stretch:
 	Executable-First Step:
 		First kind of executable that takes the first 4 applications on APL and re-sizes them.
 		
-		
+Week 6:
+-- Remarks: 
+	It seems like I have a problem when accessing Windows OS type applications.
+		For instance explorer keeps returning zero even though originally we know it has a handle
+			Currently the problems have been: 32 bit system cannot access 64 bit systems
+			&& 
+			system.invalidOpertion expection to get the handle...
+	>> For things like firefox, where we may want more then 1 window need to find all windows
+-- Look at ink canvas
+All of week 5
+	Stretch Goals:
+		-- Drag and drop it.
+		-- 2~2:30-4
+		-- Make the sliders animate the windows as they go
 		
 		
 		

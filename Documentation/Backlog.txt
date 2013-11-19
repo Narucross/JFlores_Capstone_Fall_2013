@@ -81,15 +81,24 @@ All of week 5
 		
 Week 7: Nov 18-22
 	Tasks:
-		All of week 5 and 6
+		From week 5 and 6
 			Click and Draw 			-- Draw any num of rects, number them, color change them, opacity
 			Click and move 			-- Select a rect, move it on click, release on offclick
 		Stretch Goals:
 			Drag and drop(apps) 	-- Have a panel of apps, drag and drop into a rectangle, some indication which app was dropped where
 			Make sliders on prim slide actually animate windows???
-		
-		
-		
+// Reflections : Nov 19th
+-->>	V_4_Upgrades
+			-- In the current project the "intermediate" interface V2 is not compatible with drag and drop functionalities for 3 reasons:
+				1) Rectangles are able to have drop handlers, however my specifications for drag and drop in the project outline state:
+					-- That I have some sort of Window numbering present on the rectangles that give a more canny distingtion between other drawn rectangles
+						-- Because wpf rectangles don't support text they need to be replaced with custom UserControls that is at least composed of 1 rectangle and 1 textfield
+						-- Need a User control
+				2) Tutorials on Drag and drop don't support or tell you how to send complex objects via the drag and drop wpf interface and it isn't likely I can complete or figure that out before checkoff
+				3) Save functionality problems below
+					-- Save template functionality is still on back burner because we found 32intptr logic error that makes it impossible to move native 64 bit applications. What distinguishes between 64 bit and 32 bit applications need to be reconciled and accounted for in order to make any sort of pragmatic serialization worthy of investment
+	
+Week 8: Nov 25- 29
 		
 		
 		

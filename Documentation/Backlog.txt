@@ -79,7 +79,14 @@ All of week 5
 		-- 2~2:30-4
 		-- Make the sliders animate the windows as they go
 		
-		
+Week 7: Nov 18-22
+	Tasks:
+		All of week 5 and 6
+			Click and Draw 			-- Draw any num of rects, number them, color change them, opacity
+			Click and move 			-- Select a rect, move it on click, release on offclick
+		Stretch Goals:
+			Drag and drop(apps) 	-- Have a panel of apps, drag and drop into a rectangle, some indication which app was dropped where
+			Make sliders on prim slide actually animate windows???
 		
 		
 		

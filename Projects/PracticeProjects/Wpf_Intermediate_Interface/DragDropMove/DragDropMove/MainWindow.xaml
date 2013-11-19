@@ -17,7 +17,7 @@
         <Canvas Grid.Column="0" Grid.Row="0" Width="Auto" Height="Auto" Background="Blue"
                 Name="DrawingArea" MouseDown="DrawingArea_MouseDown" 
                 MouseMove="DrawingArea_MouseMove"
-                MouseUp="DrawingArea_MouseUp" >
+                MouseUp="DrawingArea_MouseUp" ClipToBounds="True">
         </Canvas>
 
         <ListBox Grid.Column="1" Grid.Row="0" Width="Auto" Height="Auto" Background="Green" Foreground="Orange" Name="ApplicationsTracker">

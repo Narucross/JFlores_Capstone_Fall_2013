@@ -25,9 +25,6 @@ namespace DragDropMove
             InitializeComponent();
         }
 
-
-
-
         private void Pan_And_Selection_View_Click(object sender, RoutedEventArgs e)
         {
             if (e.Source == RectangleCreator)
@@ -40,42 +37,58 @@ namespace DragDropMove
                 DrawingArea.Background = Brushes.Cyan;
                 currentState = drawingState.PanView;
             }
-
         }
-
 
         private void DrawingArea_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            //if (currentlyPressed == deadMouse)
+            //{
             startingPoint = e.GetPosition(DrawingArea);
-            if (currentState == drawingState.CreateNewBounds)
-            {// Creating and tracking a new Rectangle
+            if (currentState == drawingState.PanView)
+            {
+                MoveOnHitRectangle(); 
+            }
+            else if (e.RightButton == MouseButtonState.Pressed && currentState != drawingState.PanView)
+            {
+                // We have to Hit detect, if it is a rectangle we can now move
+                currentState = drawingState.RightClickOnCreateBounds;
+                MoveOnHitRectangle(); 
+            }
+            else if (currentState == drawingState.CreateNewBounds)
+            {
+                // Creating and tracking a new Rectangle
                 toCreateRectangle = new System.Windows.Shapes.Rectangle();
                 toCreateRectangle.Stroke = Brushes.Black;
-                toCreateRectangle.Opacity = .25;
-                toCreateRectangle.Fill = Brushes.RosyBrown;
+                toCreateRectangle.Opacity = .65;
+                toCreateRectangle.Fill = Brushes.RoyalBlue;
                 toCreateRectangle.StrokeThickness = 4;
                 toCreateRectangle.MinWidth = 25;
                 toCreateRectangle.MinHeight = 25;
                 Canvas.SetLeft(toCreateRectangle, startingPoint.X);
                 Canvas.SetTop(toCreateRectangle, startingPoint.Y);
-                DrawingArea.Children.Add(toCreateRectangle);
+                DrawingArea.Children.Add(toCreateRectangle); 
             }
-            if (currentState == drawingState.PanView)
-            {
-                HitTestResult result = VisualTreeHelper.HitTest(DrawingArea, startingPoint);
-                if (result != null)
-                {
-                    if (result.VisualHit is Rectangle)
-                    {
-                        toCreateRectangle = (Rectangle)result.VisualHit;
+            //}
+        }
 
-                        double offSetX = Canvas.GetLeft(toCreateRectangle) - startingPoint.X;
-                        double offSetY = Canvas.GetTop(toCreateRectangle) - startingPoint.Y;
-                        startingPoint = new Point(offSetX, offSetY);
-                    }
+        /// <summary>
+        /// This does a hit test to see if a rectangle is currently moveable
+        /// </summary>
+        private void MoveOnHitRectangle()
+        {
+            HitTestResult result = VisualTreeHelper.HitTest(DrawingArea, startingPoint);
+            if (result != null)
+            {
+                if (result.VisualHit is Rectangle)
+                {
+                    toCreateRectangle = (Rectangle)result.VisualHit;
+                    double offSetX = Canvas.GetLeft(toCreateRectangle) - startingPoint.X;
+                    double offSetY = Canvas.GetTop(toCreateRectangle) - startingPoint.Y;
+                    startingPoint = new Point(offSetX, offSetY);
                 }
             }
         }
+
 
         private void DrawingArea_MouseMove(object sender, MouseEventArgs e)
         {
@@ -97,7 +110,7 @@ namespace DragDropMove
                 toCreateRectangle.Width = widthDiff;
                 toCreateRectangle.Height = heightDiff;
             }
-            if (IsCurrentState(drawingState.PanView) && toCreateRectangle != null)
+            if ((IsCurrentState(drawingState.PanView) || IsCurrentState(drawingState.RightClickOnCreateBounds)) && toCreateRectangle != null)
             {
                 /* Difference between the starting point and the current point
                  * The idea is to use the starting position to keep the relative distance between the two
@@ -112,7 +125,9 @@ namespace DragDropMove
 
         private void DrawingArea_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (IsCurrentState(drawingState.RightClickOnCreateBounds)) {
+                currentState = drawingState.CreateNewBounds;
+            }
             toCreateRectangle = null;
             startingPoint = new Point();
         }
@@ -120,7 +135,7 @@ namespace DragDropMove
 
         #region Properties
 
-        private enum drawingState : byte { PanView, CreateNewBounds }
+        private enum drawingState : byte { PanView, CreateNewBounds, RightClickOnCreateBounds }
 
         drawingState currentState = drawingState.CreateNewBounds;
 

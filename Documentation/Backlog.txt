@@ -108,5 +108,4 @@ Week 8: Nov 25- 29
 // Reflections Week 8
 	** Useing a custom user-control I can manage that regardless of where a mouse clicks on a unit the whole thing can move as one, this way I can make sure that my zone areas will always be accompanied by thier number compatriot
 		** Thank this guy for making user-control in visual studio short and simple: http://www.highoncoding.com/Home/
-// Bug
-	** On the zone_control perhaps it will lose the on mouse click focus...
+		** Worked as theorized but needed to disable on creation to avoid it trying to drag and create its orientation at the same time.

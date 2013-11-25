@@ -1,6 +1,5 @@
 ==========================================================================
-Elevator Pitch:
-	"	"
+Elevator Pitch : See accompaning document
 ==========================================================================
 
 ////////////////////
@@ -99,7 +98,15 @@ Week 7: Nov 18-22
 					-- Save template functionality is still on back burner because we found 32intptr logic error that makes it impossible to move native 64 bit applications. What distinguishes between 64 bit and 32 bit applications need to be reconciled and accounted for in order to make any sort of pragmatic serialization worthy of investment
 	
 Week 8: Nov 25- 29
+	Tasks:
+		Drag and drop(apps)
+		Saving templates
+			__ Cure 32 intptr ailment
 		
-		
-		
-		
+		Stretch goals:
+			Executables -- Save favorite templates for quick desktop setup
+// Reflections Week 8
+	** Useing a custom user-control I can manage that regardless of where a mouse clicks on a unit the whole thing can move as one, this way I can make sure that my zone areas will always be accompanied by thier number compatriot
+		** Thank this guy for making user-control in visual studio short and simple: http://www.highoncoding.com/Home/
+// Bug
+	** On the zone_control perhaps it will lose the on mouse click focus...

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace ApplicationDrop
 {
     /// <summary>
@@ -23,9 +24,8 @@ namespace ApplicationDrop
         public MainWindow()
         {
             InitializeComponent();
-            String[] strings = new String[]{"John", "Jacob", "jinklehiemer"};
-            Applications_Domain.ItemsSource = strings;
-            
+            String[] strings = new String[]{"John", "Jacob", "jinklehiemer", "Smith", "His Name is my Name too","Whenever I go out!!!", "The People always shout!"};
+            Applications_Domain.ItemsSource = strings;            
         }
 
         private void Applications_Domain_MouseDown(object sender, MouseButtonEventArgs e)

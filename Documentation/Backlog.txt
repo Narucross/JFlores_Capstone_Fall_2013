@@ -109,3 +109,13 @@ Week 8: Nov 25- 29
 	** Useing a custom user-control I can manage that regardless of where a mouse clicks on a unit the whole thing can move as one, this way I can make sure that my zone areas will always be accompanied by thier number compatriot
 		** Thank this guy for making user-control in visual studio short and simple: http://www.highoncoding.com/Home/
 		** Worked as theorized but needed to disable on creation to avoid it trying to drag and create its orientation at the same time.
+		
+Week 9:
+	Tasks:
+		Saving templates up to 32 bit processes
+		Drag and drop the apps from a listbox and resize them
+		Executatbles
+		
+		Stretch:
+			Cure 32 intptr ailment
+			Replace list with icons make it more polished and user friendly

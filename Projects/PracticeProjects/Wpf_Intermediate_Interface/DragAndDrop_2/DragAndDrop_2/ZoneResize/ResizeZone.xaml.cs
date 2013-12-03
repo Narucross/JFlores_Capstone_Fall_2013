@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DragAndDrop_2.Enums;
+using DragAndDrop_2.CustomEvents.DrawingStateEventChain;
 
 namespace BorderTesting
 {
@@ -20,6 +22,13 @@ namespace BorderTesting
     /// </summary>
     public partial class ResizeZone : UserControl
     {
+        #region Properties
+
+        Point _offSet;
+        bool _isPressed;
+        bool _allowedToRedirect;
+
+        #endregion
 
 
         public ResizeZone()
@@ -46,16 +55,13 @@ namespace BorderTesting
             MainBorder.BorderBrush = Brushes.Black;
             Canvas.SetZIndex(this, 0);
         }
-
-        Point offSet;
-        bool isPressed;
         private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            isPressed = e.ButtonState == MouseButtonState.Pressed;
-            if (isPressed)
+            _isPressed = e.ButtonState == MouseButtonState.Pressed;
+            if (_isPressed)
             {
                 var parent = this.Parent as Canvas;
-                offSet = e.GetPosition(this);
+                _offSet = e.GetPosition(this);
                 if (parent != null)
                 {
                     Canvas.SetZIndex(this, 1);
@@ -64,27 +70,39 @@ namespace BorderTesting
                     double offSetY = Canvas.GetTop(this);
                     offSetX -= mousePoint.X;
                     offSetY -= mousePoint.Y;
-                    offSet = new Point(offSetX, offSetY);
+                    _offSet = new Point(offSetX, offSetY);
                 }
             }
         }
 
         private void UserControl_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isPressed)
+            if (ableToMove())
             {
                 Point currentMousePosition = e.GetPosition(Window.GetWindow(this));
-                double distX = offSet.X + currentMousePosition.X;
-                double distY = offSet.Y + currentMousePosition.Y;
+                double distX = _offSet.X + currentMousePosition.X;
+                double distY = _offSet.Y + currentMousePosition.Y;
                 Canvas.SetLeft(this, distX);
                 Canvas.SetTop(this, distY);
             }
         }
 
+        private bool ableToMove()
+        {
+            return _isPressed && _allowedToRedirect;
+        }
+
         private void UserControl_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            isPressed = false;
+            _isPressed = false;
+        }
+
+        public void AdjustingDrawingState(object sender, DrawingStateEventArgs e)
+        {
+            _allowedToRedirect =
+                (e != null && (e.passedInState == drawingState.PanView || e.passedInState == drawingState.RightClickOnCreateBounds));
+
         }
 
     }//end of class
-}//end of namespace
+}//end of namespacei

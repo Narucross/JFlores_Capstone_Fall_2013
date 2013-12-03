@@ -21,6 +21,9 @@
         </Canvas>
         <ListBox Grid.Column="1" Grid.Row="0" Width="Auto" Height="Auto" Background="Black" Foreground="Orange"
                 Name="Applications_Domain" FontSize="20"
-                 MouseDown="Applications_Domain_MouseDown" MouseMove="Applications_Domain_MouseMove" MouseUp="Applications_Domain_MouseUp"></ListBox>
+                 MouseDown="Applications_Domain_MouseDown" MouseMove="Applications_Domain_MouseMove" MouseUp="Applications_Domain_MouseUp">
+            
+            
+        </ListBox>
     </Grid>
 </Window>

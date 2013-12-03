@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DragAndDrop_2.Enums;
+using DragAndDrop_2.CustomEvents.DrawingStateEventChain;
 
 namespace DragAndDrop_2
 {
@@ -24,6 +26,7 @@ namespace DragAndDrop_2
         public MainWindow()
         {
             InitializeComponent();
+            _DrawingStateHandler = new DrawingStateEventInvoker();
         }
 
         private void Pan_And_Selection_View_Click(object sender, RoutedEventArgs e)
@@ -38,30 +41,33 @@ namespace DragAndDrop_2
                 DrawingArea.Background = Brushes.Cyan;
                 currentState = drawingState.PanView;
             }
+            _DrawingStateHandler.OnDrawingChangeInvoker(currentState);
         }
 
         private void DrawingArea_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            startingPoint = e.GetPosition(DrawingArea);
-                if (e.RightButton == MouseButtonState.Pressed && currentState != drawingState.PanView)
+            if (IsCurrentState(drawingState.CreateNewBounds) && e.RightButton == MouseButtonState.Pressed && NotCurrentState(drawingState.PanView))
             {
                 currentState = drawingState.RightClickOnCreateBounds;
+                _DrawingStateHandler.OnDrawingChangeInvoker(currentState);
             }
-            else 
-                if (currentState == drawingState.CreateNewBounds)
-            {
-                // Creating and tracking a new Zone
-                currentZone = new ResizeZone();
-                currentZone.Opacity = .65;
-                currentZone.MinWidth = 25;
-                currentZone.MinHeight = 25;
-                Canvas.SetLeft(currentZone, startingPoint.X);
-                Canvas.SetTop(currentZone, startingPoint.Y);
-                DrawingArea.Children.Add(currentZone);
-                currentZone.number = DrawingArea.Children.Count;
-            }
+            else
+                if (IsCurrentState(drawingState.CreateNewBounds))
+                {
+                    startingPoint = e.GetPosition(DrawingArea);
+                    // Creating and tracking a new Zone
+                    currentZone = new ResizeZone();
+                    currentZone.Opacity = .65;
+                    currentZone.MinWidth = 25;
+                    currentZone.MinHeight = 25;
+                    Canvas.SetLeft(currentZone, startingPoint.X);
+                    Canvas.SetTop(currentZone, startingPoint.Y);
+
+                    DrawingArea.Children.Add(currentZone);
+                    currentZone.number = DrawingArea.Children.Count;
+                }
         }
-        
+
         private void DrawingArea_MouseMove(object sender, MouseEventArgs e)
         {
             Point mousePositionRDrawingArea = e.GetPosition(DrawingArea);
@@ -89,12 +95,16 @@ namespace DragAndDrop_2
             if (IsCurrentState(drawingState.CreateNewBounds))
             {
                 if (currentZone != null)
-                { currentZone.IsEnabled = true; }
+                {
+                    currentZone.IsEnabled = true;
+                    _DrawingStateHandler.DrawingStateChange += currentZone.AdjustingDrawingState;
+                }
             }
 
             if (IsCurrentState(drawingState.RightClickOnCreateBounds))
             {
                 currentState = drawingState.CreateNewBounds;
+                _DrawingStateHandler.OnDrawingChangeInvoker(currentState);
             }
 
             currentZone = null;
@@ -103,9 +113,6 @@ namespace DragAndDrop_2
 
 
         #region Properties
-
-        private enum drawingState : byte { PanView, CreateNewBounds, RightClickOnCreateBounds }
-
         drawingState currentState = drawingState.CreateNewBounds;
 
 
@@ -114,8 +121,14 @@ namespace DragAndDrop_2
             return currentState == variable;
         }
 
+        private bool NotCurrentState(drawingState variable)
+        {
+            return !IsCurrentState(variable);
+        }
+
         ResizeZone currentZone;
         Point startingPoint;
+        DrawingStateEventInvoker _DrawingStateHandler;
 
         #endregion
     }// end of class

@@ -39,6 +39,7 @@ namespace ApplicationDrop
             if (name != null && e.LeftButton == MouseButtonState.Pressed)
             {
                 DataObject StringToCopy = new DataObject(DataFormats.Text, name);
+                
                 DragDrop.DoDragDrop(Applications_Domain, StringToCopy, DragDropEffects.Copy);
             }
         }

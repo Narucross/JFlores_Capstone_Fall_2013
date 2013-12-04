@@ -69,7 +69,6 @@ namespace ApplicationDrop
             Canvas.SetLeft(label, labelCord.X);
             Canvas.SetTop(label, labelCord.Y);
             Drawing_Area.Children.Add(label);
-            Drawing_Area.Opacity = 1;
         }
 
         private void EditTextLabel_Drop(object sender, DragEventArgs e)

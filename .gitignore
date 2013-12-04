@@ -8,7 +8,6 @@
 *.user
 *.sln.docstates
 *.sln
-*.csproj
 Properties/
 App.config
 Vendor/

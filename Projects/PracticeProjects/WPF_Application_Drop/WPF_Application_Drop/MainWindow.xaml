@@ -2,12 +2,12 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Width="1000" Height="400">
-    
+
     <Grid Name="MasterGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500*"/>
             <ColumnDefinition Width="250*"/>
-        </Grid.ColumnDefinitions>        
+        </Grid.ColumnDefinitions>
 
         <Canvas Grid.Column="0" Grid.Row="0" Width="Auto" Height="Auto" Background="RoyalBlue"
                Name="Drawing_Area" AllowDrop="True" DragEnter="Drawing_Area_DragEnter" DragLeave="Drawing_Area_DragLeave" Drop="Drawing_Area_Drop" >
@@ -17,13 +17,13 @@
                    Content="SomethingToTestRightNow"
                    AllowDrop="True" Drop="EditTextLabel_Drop"
                    />
-            
+
         </Canvas>
         <ListBox Grid.Column="1" Grid.Row="0" Width="Auto" Height="Auto" Background="Black" Foreground="Orange"
                 Name="Applications_Domain" FontSize="20"
                  MouseDown="Applications_Domain_MouseDown" MouseMove="Applications_Domain_MouseMove" MouseUp="Applications_Domain_MouseUp">
-            
-            
+
+
         </ListBox>
     </Grid>
 </Window>

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace DragDropMove
+namespace Create_And_Move_Rectangles
 {
     /// <summary>
     /// Interaction logic for App.xaml

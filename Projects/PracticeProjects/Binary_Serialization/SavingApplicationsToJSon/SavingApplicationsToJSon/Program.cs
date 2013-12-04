@@ -28,7 +28,8 @@ namespace Store_Rectangles
             Console.WriteLine(String.Format("The serialized Object is:\n{0}", s));
             //WriteToFile(applicationTest);
             SavedAppications app2 = JsonConvert.DeserializeObject<SavedAppications>(s);
-            if (applicationTest.Equals(app2)) {
+            if (applicationTest.Equals(app2))
+            {
                 Console.WriteLine("\n\nSuccess");
             }
             //SerializationBeta(applicationTest);
@@ -61,8 +62,8 @@ namespace Store_Rectangles
             return new SavedWindow() { WindowProcessName = procName, WindowTempateNumber = tempNum, Width = width, Height = height, Pos_X = pos_x, Pos_Y = pos_y };
         }
 
-        static string  WriteToFile(SavedAppications applications)
-        {            
+        static string WriteToFile(SavedAppications applications)
+        {
             string pathName = "C:\\IDE\\SavedTemplates";
             string pathNameExtended = pathName + "\\" + applications.TempateName + ".txt";
             StreamWriter textWriter = new StreamWriter(pathNameExtended, true, Encoding.ASCII);
@@ -79,7 +80,8 @@ namespace Store_Rectangles
             SavedAppications application = null;
             StreamReader reader = new StreamReader(pathOfObject);
             String line = reader.ReadLine();
-            if (line != null) {
+            if (line != null)
+            {
                 application = JsonConvert.DeserializeObject<SavedAppications>(line);
             }
             reader.Close();

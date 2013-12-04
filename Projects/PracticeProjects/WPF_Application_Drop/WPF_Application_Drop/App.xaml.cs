@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace ApplicationDrop
+namespace WPF_Application_Drop
 {
     /// <summary>
     /// Interaction logic for App.xaml

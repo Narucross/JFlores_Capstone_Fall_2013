@@ -46,13 +46,13 @@ namespace DragDropMove
             startingPoint = e.GetPosition(DrawingArea);
             if (currentState == drawingState.PanView)
             {
-                MoveOnHitRectangle(); 
+                MoveOnHitRectangle();
             }
             else if (e.RightButton == MouseButtonState.Pressed && currentState != drawingState.PanView)
             {
                 // We have to Hit detect, if it is a rectangle we can now move
                 currentState = drawingState.RightClickOnCreateBounds;
-                MoveOnHitRectangle(); 
+                MoveOnHitRectangle();
             }
             else if (currentState == drawingState.CreateNewBounds)
             {
@@ -66,7 +66,7 @@ namespace DragDropMove
                 toCreateRectangle.MinHeight = 25;
                 Canvas.SetLeft(toCreateRectangle, startingPoint.X);
                 Canvas.SetTop(toCreateRectangle, startingPoint.Y);
-                DrawingArea.Children.Add(toCreateRectangle); 
+                DrawingArea.Children.Add(toCreateRectangle);
             }
             //}
         }
@@ -125,7 +125,8 @@ namespace DragDropMove
 
         private void DrawingArea_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (IsCurrentState(drawingState.RightClickOnCreateBounds)) {
+            if (IsCurrentState(drawingState.RightClickOnCreateBounds))
+            {
                 currentState = drawingState.CreateNewBounds;
             }
             toCreateRectangle = null;

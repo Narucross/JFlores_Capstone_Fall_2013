@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace DragAndDrop_2
+namespace Create_And_Move_Zones
 {
     /// <summary>
     /// Interaction logic for App.xaml

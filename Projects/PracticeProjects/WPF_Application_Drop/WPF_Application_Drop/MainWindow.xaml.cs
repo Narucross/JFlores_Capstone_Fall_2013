@@ -24,8 +24,8 @@ namespace ApplicationDrop
         public MainWindow()
         {
             InitializeComponent();
-            String[] strings = new String[]{"John", "Jacob", "jinklehiemer", "Smith", "His Name is my Name too","Whenever I go out!!!", "The People always shout!"};
-            Applications_Domain.ItemsSource = strings;            
+            String[] strings = new String[] { "John", "Jacob", "jinklehiemer", "Smith", "His Name is my Name too", "Whenever I go out!!!", "The People always shout!" };
+            Applications_Domain.ItemsSource = strings;
         }
 
         private void Applications_Domain_MouseDown(object sender, MouseButtonEventArgs e)
@@ -39,7 +39,7 @@ namespace ApplicationDrop
             if (name != null && e.LeftButton == MouseButtonState.Pressed)
             {
                 DataObject StringToCopy = new DataObject(DataFormats.Text, name);
-                
+
                 DragDrop.DoDragDrop(Applications_Domain, StringToCopy, DragDropEffects.Copy);
             }
         }
@@ -58,7 +58,7 @@ namespace ApplicationDrop
         private void Drawing_Area_DragLeave(object sender, DragEventArgs e)
         {
             Drawing_Area.Opacity = 1;
-            
+
         }
 
         private void Drawing_Area_Drop(object sender, DragEventArgs e)

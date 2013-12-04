@@ -17,9 +17,9 @@ namespace _1_ProofOfConcept_ProcessLeech
             var notepadDoc2 = Process.GetProcessById(5428);
             var notepadDoc3 = Process.GetProcessById(8940);
             Process[] processes = Process.GetProcesses();
-            Console.WriteLine(""+processes.Length);
-            var proc2  = (from cur in processes where !cur.MainWindowTitle.Equals("") select cur ).ToArray();
-            processes = new Process[] { notepadDoc1, notepadDoc2 ,notepadDoc3};
+            Console.WriteLine("" + processes.Length);
+            var proc2 = (from cur in processes where !cur.MainWindowTitle.Equals("") select cur).ToArray();
+            processes = new Process[] { notepadDoc1, notepadDoc2, notepadDoc3 };
             int i = 0;
             foreach (Process currentProcess in processes)
             {
@@ -36,24 +36,27 @@ namespace _1_ProofOfConcept_ProcessLeech
                 {
                     Console.WriteLine("" + i + ".) Has Container");
                 }
-                else {
+                else
+                {
                     Console.Write("No Container\n");
                 }
                 //TEST REGION
-                if (currentProcess.Id == 9288) {
+                if (currentProcess.Id == 9288)
+                {
                     moveNotepad(currentProcess);
                 }
                 //TEST REGION!
-                object[] obects = new object[] { i, processName, processWindowType, processWindowTypeToString,containerType };
+                object[] obects = new object[] { i, processName, processWindowType, processWindowTypeToString, containerType };
                 message = String.Format("{0}.) For the process: {1}\n\tThe type is : {2}\n\tEntity toString : {3}\n\tProcessType : {4}\n", obects);
                 Console.WriteLine(message);
-                
+
             }
             Console.WriteLine("End of the program Press enter to exit.");
             Console.ReadLine();
         }//end of main
 
-        static void moveNotepad(Process notepadProcess) {
+        static void moveNotepad(Process notepadProcess)
+        {
             int x = 740;
             int y = 360;
             int Width = 563;
@@ -62,8 +65,8 @@ namespace _1_ProofOfConcept_ProcessLeech
             Console.WriteLine("=========\tBegin Test?\t=========");
             String s = Console.ReadLine();
             var ptrintReference = notepadProcess.MainWindowHandle;
-            
-            if (s.Trim().Equals("quit",StringComparison.InvariantCultureIgnoreCase))
+
+            if (s.Trim().Equals("quit", StringComparison.InvariantCultureIgnoreCase))
             {
                 Console.WriteLine("Wimp");
             }

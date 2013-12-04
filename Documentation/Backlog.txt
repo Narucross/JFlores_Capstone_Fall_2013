@@ -119,3 +119,8 @@ Week 9:
 		Stretch:
 			Cure 32 intptr ailment
 			Replace list with icons make it more polished and user friendly
+			
+	// Week 9 Notes:
+		// Drag and Drop -- At least WPF doesn't entirely support: "DropReportedSuccessful/Received" callback, so I will create my own
+		// I just realized I never said that I could Load saved Templates
+		// Won't be able to don executables as of Wednesday: 3:30pm

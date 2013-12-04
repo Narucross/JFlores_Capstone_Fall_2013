@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Model.DesktopApplicationModel;
 using System.IO;
 using Newtonsoft.Json;
+using Create_And_Move_Zones.Model.DesktopApplicationModels;
+
 namespace Create_And_Move_Zones.Model.SavingFunctionality
 {
     public class SimpleDesktopWindowSaver

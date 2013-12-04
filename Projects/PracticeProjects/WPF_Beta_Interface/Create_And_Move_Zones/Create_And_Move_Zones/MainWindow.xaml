@@ -3,6 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="800" Width="1800">
 
+    <Window.Resources>
+        
+        <Style x:Key="BasicFont" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <DataTemplate x:Key="ListBoxInformation">
+            <Border BorderThickness="2" BorderBrush="Aqua" Margin="2,3,2,3">
+                <StackPanel Background="Teal" Orientation="Horizontal">
+                    <TextBlock Text="{Binding Path=WindowName, FallbackValue =empty}" Style="{StaticResource BasicFont}" />
+                    <TextBlock Text="{Binding Path=ProcessIdNumber,FallbackValue=doubleEmpty}" Style="{StaticResource BasicFont}" />
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+
+    </Window.Resources>
+
     <Grid Name="MasterGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1600"/>
@@ -21,10 +38,11 @@
         </Canvas>
 
         <ListBox Grid.Column="1" Grid.Row="0" Width="Auto" Height="Auto" Background="Green" Foreground="Orange" 
-                 Name="ApplicationsTracker"> 
+                 Name="ApplicationsTracker"
+                 ItemsSource="{Binding}" ItemTemplate="{StaticResource ListBoxInformation}">
         </ListBox>
 
-        
+
         <!-- Directions -->
         <WrapPanel Grid.Column="0" Grid.Row="1">
             <Button Name="RectangleCreator" Click="Pan_And_Selection_View_Click">Create Rectangle</Button>

@@ -5,17 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace Model.DesktopApplicationModel
+namespace Create_And_Move_Zones.Model.DesktopApplicationModels
 {
     public class SavedActiveWindow : SavedWindow
     {
         public int processId;
-        public void something() { 
-            
-        }
+
         public SavedActiveWindow(Process proc) : base(proc)
         {
-            processId = proc.Id;
+            processId = proc.Id;            
         }
         public override string ToString()
         {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace Model.DesktopApplicationModel
+namespace Create_And_Move_Zones.Model.DesktopApplicationModels
 {
     /// <summary>
     /// A "Bean" for an item stored in the saved application.

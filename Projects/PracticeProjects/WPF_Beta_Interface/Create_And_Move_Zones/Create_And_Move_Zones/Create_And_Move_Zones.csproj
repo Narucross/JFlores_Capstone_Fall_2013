@@ -58,6 +58,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\SavingFunctionality\SimpleDesktopWindowSaver.cs" />
+    <Compile Include="ViewModels\DataBeans\DesktopApplicationBean.cs" />
+    <Compile Include="ViewModels\MasterViewModel.cs" />
     <Compile Include="Views\CustomEvents\DrawingStateEventChain\DrawingStateEventArgs.cs" />
     <Compile Include="Views\CustomEvents\DrawingStateEventChain\DrawingStateEventInvoker.cs" />
     <Compile Include="Views\Enums\drawingState.cs" />

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.DesktopApplicationModel
+namespace Create_And_Move_Zones.Model.DesktopApplicationModels
 {
     /// <summary>
     /// A "Bean" for saving what the user wants the idea is to have a template and application coupling, this being the later.

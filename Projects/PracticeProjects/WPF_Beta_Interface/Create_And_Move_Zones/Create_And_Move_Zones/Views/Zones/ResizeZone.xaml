@@ -4,12 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" MinWidth="50" MinHeight="50"
-             MouseEnter="UserControl_MouseEnter" MouseLeave="UserControl_MouseLeave"
-             MouseMove="UserControl_MouseMove" MouseDown="UserControl_MouseDown" MouseUp="UserControl_MouseUp"    
+             d:DesignHeight="300" d:DesignWidth="300" MinWidth="50" MinHeight="50"   
+             
              Background="RoyalBlue"
              BorderBrush="Black" BorderThickness="4"
              HorizontalAlignment="Left" VerticalAlignment="Top"
+             
+             MouseEnter="UserControl_MouseEnter" MouseLeave="UserControl_MouseLeave"
+             MouseMove="UserControl_MouseMove" MouseDown="UserControl_MouseDown" MouseUp="UserControl_MouseUp" 
+             
              >
     
     <Border Name="MainBorder" BorderThickness="5" BorderBrush="Blue" Background="White"   

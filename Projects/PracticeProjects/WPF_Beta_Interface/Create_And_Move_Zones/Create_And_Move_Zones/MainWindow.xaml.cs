@@ -28,6 +28,8 @@ namespace DragAndDrop_2
         {
             InitializeComponent();
             _DrawingStateHandler = new DrawingStateEventInvoker();
+            _myModel = new Create_And_Move_Zones.ViewModels.MasterViewModel();
+            ListboxInitialization();
         }
 
         #region switch States and Buttons area
@@ -121,6 +123,10 @@ namespace DragAndDrop_2
         #endregion
 
         #region Listbox specifications
+        private void ListboxInitialization()
+        {
+            ApplicationsTracker.ItemsSource = _myModel.GetCurrentProcesses();
+        }
         #endregion
 
 
@@ -142,6 +148,7 @@ namespace DragAndDrop_2
         ResizeZone currentZone;
         Point startingPoint;
         DrawingStateEventInvoker _DrawingStateHandler;
+        Create_And_Move_Zones.ViewModels.MasterViewModel _myModel;
 
         #endregion
 

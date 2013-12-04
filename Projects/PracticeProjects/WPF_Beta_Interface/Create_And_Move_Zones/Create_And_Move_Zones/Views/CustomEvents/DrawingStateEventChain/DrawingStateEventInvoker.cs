@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DragAndDrop_2.Enums;
 
-namespace DragAndDrop_2.CustomEvents.DrawingStateEventChain
+using DragAndDrop_2.Views.Enums;
+
+namespace DragAndDrop_2.Views.CustomEvents.DrawingStateEventChain
 {
     public class DrawingStateEventInvoker
     {

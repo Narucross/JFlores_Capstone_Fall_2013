@@ -20,10 +20,11 @@
                 MouseUp="DrawingArea_MouseUp" ClipToBounds="True">
         </Canvas>
 
-        <ListBox Grid.Column="1" Grid.Row="0" Width="Auto" Height="Auto" Background="Green" Foreground="Orange" Name="ApplicationsTracker">
+        <ListBox Grid.Column="1" Grid.Row="0" Width="Auto" Height="Auto" Background="Green" Foreground="Orange" 
+                 Name="ApplicationsTracker"> 
         </ListBox>
 
-
+        
         <!-- Directions -->
         <WrapPanel Grid.Column="0" Grid.Row="1">
             <Button Name="RectangleCreator" Click="Pan_And_Selection_View_Click">Create Rectangle</Button>

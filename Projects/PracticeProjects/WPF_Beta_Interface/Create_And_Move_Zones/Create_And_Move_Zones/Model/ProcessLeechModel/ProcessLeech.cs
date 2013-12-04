@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.InteropServices;
+
 using System.Diagnostics;
-using System.Collections;
-using Store_Rectangles;
-using WPF_Unfurbished_Processed.StoredObjects;
+using Model.DesktopApplicationModel;
+using System.Runtime.InteropServices;
 
-namespace WPF_Unfurbished_Processed.ProcessLeech
+namespace Create_And_Move_Zones.Model.ProcessLeechModel
 {
-    class LeechProcesses
+    public class ProcessLeech
     {
-
         public static List<SavedActiveWindow> Get_Processes()
         {
             IEnumerable<Process> currentProcesses;
@@ -75,5 +73,6 @@ namespace WPF_Unfurbished_Processed.ProcessLeech
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, ExactSpelling = true, SetLastError = true)]
         internal static extern void MoveWindow(IntPtr hwnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
-    }
+
+    }// end of class
 }

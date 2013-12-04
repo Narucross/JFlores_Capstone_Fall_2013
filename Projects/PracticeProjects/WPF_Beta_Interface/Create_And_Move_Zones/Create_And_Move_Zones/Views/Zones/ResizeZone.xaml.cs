@@ -12,10 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DragAndDrop_2.Enums;
-using DragAndDrop_2.CustomEvents.DrawingStateEventChain;
 
-namespace BorderTesting
+using DragAndDrop_2.Views.CustomEvents.DrawingStateEventChain;
+using DragAndDrop_2.Views.Enums;
+
+namespace Views.Zones
 {
     /// <summary>
     /// Interaction logic for ResizeZone.xaml

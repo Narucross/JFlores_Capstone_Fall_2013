@@ -1,5 +1,4 @@
-﻿using BorderTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DragAndDrop_2.Enums;
-using DragAndDrop_2.CustomEvents.DrawingStateEventChain;
+
+using DragAndDrop_2.Views.Enums;
+using DragAndDrop_2.Views.CustomEvents.DrawingStateEventChain;
+using Views.Zones;
 
 namespace DragAndDrop_2
 {
@@ -29,6 +30,8 @@ namespace DragAndDrop_2
             _DrawingStateHandler = new DrawingStateEventInvoker();
         }
 
+        #region switch States and Buttons area
+        
         private void Pan_And_Selection_View_Click(object sender, RoutedEventArgs e)
         {
             if (e.Source == RectangleCreator)
@@ -43,7 +46,11 @@ namespace DragAndDrop_2
             }
             _DrawingStateHandler.OnDrawingChangeInvoker(currentState);
         }
+        
+        #endregion
 
+        #region Drawing Area and creation events
+        
         private void DrawingArea_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (IsCurrentState(drawingState.CreateNewBounds) && e.RightButton == MouseButtonState.Pressed && NotCurrentState(drawingState.PanView))
@@ -110,9 +117,15 @@ namespace DragAndDrop_2
             currentZone = null;
             startingPoint = new Point();
         }
+        
+        #endregion
+
+        #region Listbox specifications
+        #endregion
 
 
         #region Properties
+
         drawingState currentState = drawingState.CreateNewBounds;
 
 
@@ -131,5 +144,7 @@ namespace DragAndDrop_2
         DrawingStateEventInvoker _DrawingStateHandler;
 
         #endregion
+
     }// end of class
-}
+
+}// end of namespace

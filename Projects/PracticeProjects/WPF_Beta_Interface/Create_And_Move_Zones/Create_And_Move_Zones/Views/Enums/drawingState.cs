@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DragAndDrop_2.Enums
+namespace DragAndDrop_2.Views.Enums
 {
     public enum drawingState : byte { PanView, CreateNewBounds, RightClickOnCreateBounds }
 }

@@ -134,11 +134,16 @@ namespace Views.Zones
             var bean = e.Data.GetData(typeof(Create_And_Move_Zones.ViewModels.DataBeans.DesktopApplicationBean)) as Create_And_Move_Zones.ViewModels.DataBeans.DesktopApplicationBean;
             if (bean != null)
             {
-                var eventArgs = new DeskTopDroppedEventArgs(bean, this.Width, this.Height, Canvas.GetLeft(this), Canvas.GetTop(this));
-
+                var eventArgs = new DeskTopDroppedEventArgs();
+                eventArgs.WindowName = bean.WindowName;
+                eventArgs.ProcessIdNumber = bean.ProcessIdNumber;
+                eventArgs.Height = this.Height;
+                eventArgs.Width = this.Width;
+                eventArgs.X = Canvas.GetLeft(this);
+                eventArgs.Y = Canvas.GetTop(this);
+                eventArgs.ZoneNumber = this.number;
                 // Fire my recieved Event 
                 myInvoker.RecievedItemInformHigherUps(eventArgs);
-
             }
             sendThisBack();
         }

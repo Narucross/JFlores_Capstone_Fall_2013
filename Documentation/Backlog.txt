@@ -124,3 +124,6 @@ Week 9:
 		// Drag and Drop -- At least WPF doesn't entirely support: "DropReportedSuccessful/Received" callback, so I will create my own
 		// I just realized I never said that I could Load saved Templates
 		// Won't be able to don executables as of Wednesday: 3:30pm
+		// Saved at least can save to file, there is currently no way to load a template or to guarentee that a window rememebers its dimensions
+		// Executables is still a ways off.
+		// Thinking of implementing real time panning with certain windows

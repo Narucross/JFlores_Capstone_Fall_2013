@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Create_And_Move_Zones.Model.ProcessLeechModel;
 using Create_And_Move_Zones.Model.DesktopApplicationModels;
 using Create_And_Move_Zones.ViewModels.DataBeans;
+using Create_And_Move_Zones.Model.SavingFunctionality;
 
 namespace Create_And_Move_Zones.ViewModels
 {
@@ -16,9 +17,17 @@ namespace Create_And_Move_Zones.ViewModels
         // Have the "On save function"
 
         private List<SavedActiveWindow> _SavedProcesses;
+        private SimpleDesktopWindowSaver _MySaver;
+        public string TemplateName { get; set; }
+        public short TemplateNumber { get; set; }
+
+
         public MasterViewModel()
         {
             _SavedProcesses = ProcessLeech.Get_Processes();
+            _MySaver = new SimpleDesktopWindowSaver();
+            TemplateName = "Default";
+            TemplateNumber = 1;
         }
 
         public List<DesktopApplicationBean> GetCurrentProcesses()
@@ -36,21 +45,42 @@ namespace Create_And_Move_Zones.ViewModels
             return list;
         }
 
-
-
         internal void moveWindow(Views.CustomEvents.DropApplicationAndResizeChain.DeskTopDroppedEventArgs e)
         {
-            var x = from cal in _SavedProcesses where e.ProcessIdNumber == cal.processId select cal;
-            if (x != null)
+            var ienumerableShortedResults = from cal in _SavedProcesses where e.ProcessIdNumber == cal.processId select cal;
+
+            if (ienumerableShortedResults != null)
             {
-                var x2 = x.FirstOrDefault();
-                if (x2 != null && x2.processId == e.ProcessIdNumber)
+                var SelectedSavedActiveWindow = ienumerableShortedResults.FirstOrDefault();
+                if (SelectedSavedActiveWindow != null && SelectedSavedActiveWindow.processId == e.ProcessIdNumber)
                 {
-                    var pointer = ProcessLeech.getProcessByWindowId(x2);
+                    var pointer = ProcessLeech.getProcessByWindowId(SelectedSavedActiveWindow);
 
                     ProcessLeech.moveWindow(pointer, (int)e.X, (int)e.Y, (int)e.Width, (int)e.Height);
                 }
             }
         }
+
+        #region Saving functionality
+
+        public void saveCurrentWindowState()
+        {
+            SimpleDesktopWindowSaver.WriteApplicationsToStaticFile(createSavedApplicationFromCurrentState());
+        }
+
+        private SavedAppications createSavedApplicationFromCurrentState()
+        {
+            SavedAppications applications = new SavedAppications();
+            applications.TemplateName = this.TemplateName;
+            foreach (SavedActiveWindow x in _SavedProcesses) {
+                x.WindowTempateNumber = this.TemplateNumber;                
+            }
+            var list2 = new List<SavedWindow>(_SavedProcesses.AsEnumerable());
+            applications.SavedWindows = list2;
+            return applications;
+        }
+
+        #endregion
+
     }
 }

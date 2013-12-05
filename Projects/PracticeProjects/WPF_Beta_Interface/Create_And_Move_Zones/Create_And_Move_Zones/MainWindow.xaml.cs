@@ -139,6 +139,8 @@ namespace DragAndDrop_2
         {
             //TODO: We will either need some logic here where we rescale the size of the rectangle to be fitting of the actual size of the screen we are working on...
             // Or we can go into my view model and see if we should do it there.
+            //TODO wrap this event 1 more time where we send in the template name and template number of this main window:
+
             _myModel.moveWindow(e);
         }
 
@@ -149,7 +151,7 @@ namespace DragAndDrop_2
             {
                 var args = new DataObject(
                         typeof(Create_And_Move_Zones.ViewModels.DataBeans.DesktopApplicationBean), selectedItemAndStuff);
-                DragDrop.DoDragDrop(ApplicationsTracker, args, DragDropEffects.Copy);             
+                DragDrop.DoDragDrop(ApplicationsTracker, args, DragDropEffects.Copy);
             }
         }
 
@@ -176,6 +178,16 @@ namespace DragAndDrop_2
         Create_And_Move_Zones.ViewModels.MasterViewModel _myModel;
 
         #endregion
+
+        private void SizeFinderAkASAVEEVENTUALLY_Click(object sender, RoutedEventArgs e)
+        {
+            var WindowHeight = this.Height;
+            var WindowWidth = this.Width;
+            String s = String.Format("Height : {0} || Width : {1}", WindowHeight, WindowWidth);
+            MessageBoxResult some = MessageBox.Show(s);
+            _myModel.TemplateName = TemplateNameBox.Text;
+            _myModel.saveCurrentWindowState();
+        }
 
 
 

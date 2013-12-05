@@ -127,3 +127,17 @@ Week 9:
 		// Saved at least can save to file, there is currently no way to load a template or to guarentee that a window rememebers its dimensions
 		// Executables is still a ways off.
 		// Thinking of implementing real time panning with certain windows
+		
+Week 10: Until Tuesday
+	Tasks:
+		Fix bugs with resizing
+			Make canvas size, successfully mimic or represent the actual resolution and size of the Windows Desktop			
+			Try making sure that isEnabled is correct or that the focus can reach certain items...
+			
+		Loading saved files
+			Try seeing if they have a "Java static class that allows you to file browse{filter to txt or something}
+		
+		Stretchgoals:	
+			Executables
+			Try an animation tag on panning{if bound??}
+			Tabbed Pane...

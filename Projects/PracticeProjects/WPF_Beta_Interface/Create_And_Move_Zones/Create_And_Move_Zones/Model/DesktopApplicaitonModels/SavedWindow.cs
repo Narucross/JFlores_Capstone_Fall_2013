@@ -13,7 +13,7 @@ namespace Create_And_Move_Zones.Model.DesktopApplicationModels
     public class SavedWindow
     {
         public string WindowProcessName { get; set; }
-        public short WindowTempateNumber { get; set; }
+        public short WindowPositionNumber { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
         public int Pos_X { get; set; }
@@ -21,7 +21,7 @@ namespace Create_And_Move_Zones.Model.DesktopApplicationModels
 
         public SavedWindow(Process proc) {
             WindowProcessName = proc.ProcessName;
-            WindowTempateNumber = 0;
+            WindowPositionNumber = 0;
             Width = 100;
             Height = 100;
             Pos_X = 100;
@@ -37,7 +37,7 @@ namespace Create_And_Move_Zones.Model.DesktopApplicationModels
             {
                 SavedWindow casted = (SavedWindow)obj;
                 bool sameProcName = casted.WindowProcessName.Equals(this.WindowProcessName);
-                bool sameNumber = (casted.WindowTempateNumber == this.WindowTempateNumber);
+                bool sameNumber = (casted.WindowPositionNumber == this.WindowPositionNumber);
                 bool sameWidth = (casted.Width == this.Width);
                 bool sameheight = (casted.Height == this.Height);
                 bool sameX = (casted.Pos_X == this.Pos_X);
@@ -48,7 +48,7 @@ namespace Create_And_Move_Zones.Model.DesktopApplicationModels
         }
         public override int GetHashCode()
         {
-            return (((int)WindowTempateNumber) + Width + Height + Pos_X + Pos_Y + WindowProcessName.GetHashCode());
+            return (((int)WindowPositionNumber) + Width + Height + Pos_X + Pos_Y + WindowProcessName.GetHashCode());
         }
 
         public override string ToString()

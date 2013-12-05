@@ -19,7 +19,6 @@ namespace Create_And_Move_Zones.ViewModels
         private List<SavedActiveWindow> _SavedProcesses;
         private SimpleDesktopWindowSaver _MySaver;
         public string TemplateName { get; set; }
-        public short TemplateNumber { get; set; }
 
 
         public MasterViewModel()
@@ -27,7 +26,6 @@ namespace Create_And_Move_Zones.ViewModels
             _SavedProcesses = ProcessLeech.Get_Processes();
             _MySaver = new SimpleDesktopWindowSaver();
             TemplateName = "Default";
-            TemplateNumber = 1;
         }
 
         public List<DesktopApplicationBean> GetCurrentProcesses()
@@ -54,9 +52,13 @@ namespace Create_And_Move_Zones.ViewModels
                 var SelectedSavedActiveWindow = ienumerableShortedResults.FirstOrDefault();
                 if (SelectedSavedActiveWindow != null && SelectedSavedActiveWindow.processId == e.ProcessIdNumber)
                 {
+                    SelectedSavedActiveWindow.WindowPositionNumber = e.ZoneNumber;
+                    SelectedSavedActiveWindow.Width = (int)e.Width;
+                    SelectedSavedActiveWindow.Height = (int)e.Height;
+                    SelectedSavedActiveWindow.Pos_X = (int)e.X;
+                    SelectedSavedActiveWindow.Pos_Y = (int)e.Y;
                     var pointer = ProcessLeech.getProcessByWindowId(SelectedSavedActiveWindow);
-
-                    ProcessLeech.moveWindow(pointer, (int)e.X, (int)e.Y, (int)e.Width, (int)e.Height);
+                    ProcessLeech.moveWindow(pointer, SelectedSavedActiveWindow.Pos_X,SelectedSavedActiveWindow.Pos_Y,SelectedSavedActiveWindow.Width,SelectedSavedActiveWindow.Height);
                 }
             }
         }
@@ -72,9 +74,6 @@ namespace Create_And_Move_Zones.ViewModels
         {
             SavedAppications applications = new SavedAppications();
             applications.TemplateName = this.TemplateName;
-            foreach (SavedActiveWindow x in _SavedProcesses) {
-                x.WindowTempateNumber = this.TemplateNumber;                
-            }
             var list2 = new List<SavedWindow>(_SavedProcesses.AsEnumerable());
             applications.SavedWindows = list2;
             return applications;

@@ -141,7 +141,15 @@ namespace Views.Zones
                 eventArgs.Width = this.Width;
                 eventArgs.X = Canvas.GetLeft(this);
                 eventArgs.Y = Canvas.GetTop(this);
-                eventArgs.ZoneNumber = this.number;
+                if (this.number <= short.MaxValue)
+                {
+
+                    eventArgs.ZoneNumber = (short)this.number;
+                }
+                else
+                {
+                    eventArgs.ZoneNumber = short.MaxValue;
+                }
                 // Fire my recieved Event 
                 myInvoker.RecievedItemInformHigherUps(eventArgs);
             }

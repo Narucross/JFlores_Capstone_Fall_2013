@@ -17,7 +17,7 @@ namespace Create_And_Move_Zones.Views.CustomEvents.DropApplicationAndResizeChain
         public double X { get; set; }
         public double Y { get; set; }
 
-        public int ZoneNumber { get; set; }
+        public short ZoneNumber { get; set; }
 
 
     } //end of class

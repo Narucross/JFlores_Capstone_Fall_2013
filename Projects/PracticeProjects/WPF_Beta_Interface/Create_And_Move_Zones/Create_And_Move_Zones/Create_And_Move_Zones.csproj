@@ -62,6 +62,8 @@
     <Compile Include="ViewModels\MasterViewModel.cs" />
     <Compile Include="Views\CustomEvents\DrawingStateEventChain\DrawingStateEventArgs.cs" />
     <Compile Include="Views\CustomEvents\DrawingStateEventChain\DrawingStateEventInvoker.cs" />
+    <Compile Include="Views\CustomEvents\DropApplicationAndResizeChain\DeskTopDroppedEventArgs.cs" />
+    <Compile Include="Views\CustomEvents\DropApplicationAndResizeChain\DeskTopDroppedInvoker.cs" />
     <Compile Include="Views\Enums\drawingState.cs" />
     <Compile Include="Model\DesktopApplicaitonModels\SavedActiveWindow.cs" />
     <Compile Include="Model\DesktopApplicaitonModels\SavedApplications.cs" />

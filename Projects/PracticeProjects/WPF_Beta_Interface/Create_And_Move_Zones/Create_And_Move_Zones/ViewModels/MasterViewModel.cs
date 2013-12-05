@@ -36,5 +36,21 @@ namespace Create_And_Move_Zones.ViewModels
             return list;
         }
 
+
+
+        internal void moveWindow(Views.CustomEvents.DropApplicationAndResizeChain.DeskTopDroppedEventArgs e)
+        {
+            var x = from cal in _SavedProcesses where e.ProcessIdNumber == cal.processId select cal;
+            if (x != null)
+            {
+                var x2 = x.FirstOrDefault();
+                if (x2 != null && x2.processId == e.ProcessIdNumber)
+                {
+                    var pointer = ProcessLeech.getProcessByWindowId(x2);
+
+                    ProcessLeech.moveWindow(pointer, (int)e.X, (int)e.Y, (int)e.Width, (int)e.Height);
+                }
+            }
+        }
     }
 }

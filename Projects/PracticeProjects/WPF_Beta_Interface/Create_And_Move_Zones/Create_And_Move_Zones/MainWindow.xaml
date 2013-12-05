@@ -39,6 +39,7 @@
 
         <ListBox Grid.Column="1" Grid.Row="0" Width="Auto" Height="Auto" Background="Green" Foreground="Orange" 
                  Name="ApplicationsTracker"
+                 MouseMove="ApplicationsTracker_MouseMove"
                  ItemsSource="{Binding}" ItemTemplate="{StaticResource ListBoxInformation}">
         </ListBox>
 

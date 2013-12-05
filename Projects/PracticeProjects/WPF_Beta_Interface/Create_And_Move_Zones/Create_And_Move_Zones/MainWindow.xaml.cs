@@ -33,7 +33,7 @@ namespace DragAndDrop_2
         }
 
         #region switch States and Buttons area
-        
+
         private void Pan_And_Selection_View_Click(object sender, RoutedEventArgs e)
         {
             if (e.Source == RectangleCreator)
@@ -48,11 +48,11 @@ namespace DragAndDrop_2
             }
             _DrawingStateHandler.OnDrawingChangeInvoker(currentState);
         }
-        
+
         #endregion
 
         #region Drawing Area and creation events
-        
+
         private void DrawingArea_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (IsCurrentState(drawingState.CreateNewBounds) && e.RightButton == MouseButtonState.Pressed && NotCurrentState(drawingState.PanView))
@@ -74,6 +74,7 @@ namespace DragAndDrop_2
 
                     DrawingArea.Children.Add(currentZone);
                     currentZone.number = DrawingArea.Children.Count;
+                    subToInvoker(currentZone);
                 }
         }
 
@@ -119,16 +120,40 @@ namespace DragAndDrop_2
             currentZone = null;
             startingPoint = new Point();
         }
-        
+
         #endregion
 
         #region Listbox specifications
+
         private void ListboxInitialization()
         {
             ApplicationsTracker.ItemsSource = _myModel.GetCurrentProcesses();
         }
-        #endregion
 
+        private void subToInvoker(ResizeZone x)
+        {
+            x.myInvoker.OnDroppedDelegate += myInvoker_AfterAnItemHasBeenDroppedFeedBack;
+        }
+
+        void myInvoker_AfterAnItemHasBeenDroppedFeedBack(object sender, Create_And_Move_Zones.Views.CustomEvents.DropApplicationAndResizeChain.DeskTopDroppedEventArgs e)
+        {
+            //TODO: We will either need some logic here where we rescale the size of the rectangle to be fitting of the actual size of the screen we are working on...
+            // Or we can go into my view model and see if we should do it there.
+            _myModel.moveWindow(e);
+        }
+
+        private void ApplicationsTracker_MouseMove(object sender, MouseEventArgs e)
+        {
+            var selectedItemAndStuff = ApplicationsTracker.SelectedItem as Create_And_Move_Zones.ViewModels.DataBeans.DesktopApplicationBean;
+            if (selectedItemAndStuff != null && e.LeftButton == MouseButtonState.Pressed)
+            {
+                var args = new DataObject(
+                        typeof(Create_And_Move_Zones.ViewModels.DataBeans.DesktopApplicationBean), selectedItemAndStuff);
+                DragDrop.DoDragDrop(ApplicationsTracker, args, DragDropEffects.Copy);             
+            }
+        }
+
+        #endregion
 
         #region Properties
 
@@ -151,6 +176,10 @@ namespace DragAndDrop_2
         Create_And_Move_Zones.ViewModels.MasterViewModel _myModel;
 
         #endregion
+
+
+
+
 
     }// end of class
 

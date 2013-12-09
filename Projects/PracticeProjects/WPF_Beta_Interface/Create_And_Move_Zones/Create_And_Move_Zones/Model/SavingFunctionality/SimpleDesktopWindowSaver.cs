@@ -30,16 +30,22 @@ namespace Create_And_Move_Zones.Model.SavingFunctionality
             textWriter.Close();
             return pathToFile;
         }
+
         public static SavedAppications getWindowAppsFromStaticFile(string pathname)
         {
             SavedAppications application = null;
             StreamReader reader = new StreamReader(pathname);
-            String line = reader.ReadLine();
-            if (line != null)
+            StringBuilder builder = new StringBuilder();
+            while (reader.EndOfStream)
+            {
+                builder.Append(reader.ReadLine());
+            }
+            reader.Close();
+            String line = builder.ToString();
+            if (! ("".Equals(line)) )
             {
                 application = JsonConvert.DeserializeObject<SavedAppications>(line);
             }
-            reader.Close();
             return application;
         }
 

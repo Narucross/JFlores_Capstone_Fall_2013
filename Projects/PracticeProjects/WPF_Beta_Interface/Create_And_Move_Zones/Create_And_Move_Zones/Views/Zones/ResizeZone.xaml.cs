@@ -30,6 +30,7 @@ namespace Views.Zones
         Point _offSet;
         bool _isPressed;
         bool _allowedToRedirect;
+        private Brush _regularColor;
         public int number { get; set; }
         public Create_And_Move_Zones.Views.CustomEvents.DropApplicationAndResizeChain.DeskTopDroppedInvoker myInvoker { get; private set; }
 
@@ -43,12 +44,9 @@ namespace Views.Zones
             DataContext = this;
             IsEnabled = false;
             myInvoker = new Create_And_Move_Zones.Views.CustomEvents.DropApplicationAndResizeChain.DeskTopDroppedInvoker();
-            InitializeComponent();
-        }
-
-        public ResizeZone(UIElement parentElement)
-        {
-            InitializeComponent();
+            _regularColor = Brushes.Green;
+            MainBorder.BorderBrush = _regularColor;
+            InitializeComponent();            
         }
 
         #region Pan Movement
@@ -56,12 +54,12 @@ namespace Views.Zones
 
         private void UserControl_MouseEnter(object sender, MouseEventArgs e)
         {
-            MainBorder.BorderBrush = Brushes.Green;
+            MainBorder.BorderBrush = Brushes.Cyan;
         }
 
         private void UserControl_MouseLeave(object sender, MouseEventArgs e)
         {
-            MainBorder.BorderBrush = Brushes.Black;
+            MainBorder.BorderBrush = _regularColor;
             sendThisBack();
         }
         private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)

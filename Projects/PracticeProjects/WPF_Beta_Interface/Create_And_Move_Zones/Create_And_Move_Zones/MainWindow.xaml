@@ -1,24 +1,32 @@
 ﻿<Window x:Class="DragAndDrop_2.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="800" Width="1800"
+        Title="MainWindow" Height="800" Width="1600"
+        MinHeight="460"
+        MinWidth="700"
         >
 
     <!-- Possible sizes for presentations
         H:765 W: 1595
     -->
     <Window.Resources>
+      
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="4,0,4,0"/>
+            </Style>
 
-        <Style x:Key="BasicFont" TargetType="TextBlock" >
-            <Setter Property="FontSize" Value="16"/>
+        <Style x:Key="textBlock_1" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
         
         <DataTemplate x:Key="ListBoxInformation">
             <Border BorderThickness="2" BorderBrush="Aqua" Margin="2,3,2,3">
                 <StackPanel Background="Teal" Orientation="Horizontal">
-                    <TextBlock Text="{Binding Path=WindowName, FallbackValue =empty}" Style="{StaticResource BasicFont}" />
-                    <TextBlock Text="{Binding Path=ProcessIdNumber,FallbackValue=doubleEmpty}" Style="{StaticResource BasicFont}" />
+                    <TextBlock Text="{Binding Path=WindowName, FallbackValue =empty}" Style="{StaticResource textBlock_1}"  />
+                    <TextBlock Text="{Binding Path=ProcessIdNumber,FallbackValue=doubleEmpty}" Style="{StaticResource textBlock_1}" />
                 </StackPanel>
             </Border>
         </DataTemplate>
@@ -27,12 +35,12 @@
 
     <Grid Name="MasterGrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1600"/>
+            <ColumnDefinition Width="800*"/>
             <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="700" />
-            <RowDefinition Height="50*"/>
+            <RowDefinition Height="400*" />
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
 
 
@@ -42,6 +50,7 @@
                 MouseUp="DrawingArea_MouseUp" ClipToBounds="True">
         </Canvas>
 
+        <!-- Application Trackers-->
         <ListBox Grid.Column="1" Grid.Row="0" Width="Auto" Height="Auto" Background="Green" Foreground="Orange" 
                  Name="ApplicationsTracker"
                  MouseMove="ApplicationsTracker_MouseMove"
@@ -54,11 +63,13 @@
             <Button Name="RectangleCreator" Click="Pan_And_Selection_View_Click">Create Rectangle</Button>
             <Button Name="PanView" Click="Pan_And_Selection_View_Click">Select Rectangle</Button>
             <Button Name="SizeFinderAkASAVEEVENTUALLY" Click="SizeFinderAkASAVEEVENTUALLY_Click">Press the button</Button>
+            <Button Name="LoadButton" Click="LoadButton_Click" >Load An Application</Button>
         </WrapPanel>
 
+        <!-- Save Template Name Areas -->
         <StackPanel Grid.Column="1" Grid.Row="1">
             <WrapPanel>
-                <TextBlock Name="DisplayTemplateName" FontSize="18" FontWeight="Bold">Tempalte Name:</TextBlock>
+                <TextBlock Name="DisplayTemplateName" Style="{StaticResource textBlock_1}">Tempalte Name:</TextBlock>
                 <TextBox Name="TemplateNameBox"  Margin="2,0,0,0" 
                          FontSize="18" Width="{Binding ElementName=DisplayTemplateName, Path=ActualWidth}" Height="Auto"
                          Text="Default"/>

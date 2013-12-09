@@ -58,7 +58,7 @@ namespace Create_And_Move_Zones.ViewModels
                     SelectedSavedActiveWindow.Pos_X = (int)e.X;
                     SelectedSavedActiveWindow.Pos_Y = (int)e.Y;
                     var pointer = ProcessLeech.getProcessByWindowId(SelectedSavedActiveWindow);
-                    ProcessLeech.moveWindow(pointer, SelectedSavedActiveWindow.Pos_X,SelectedSavedActiveWindow.Pos_Y,SelectedSavedActiveWindow.Width,SelectedSavedActiveWindow.Height);
+                    ProcessLeech.moveWindow(pointer, SelectedSavedActiveWindow.Pos_X, SelectedSavedActiveWindow.Pos_Y, SelectedSavedActiveWindow.Width, SelectedSavedActiveWindow.Height);
                 }
             }
         }
@@ -81,5 +81,41 @@ namespace Create_And_Move_Zones.ViewModels
 
         #endregion
 
+
+        #region LoadFunctionality
+        //SHould I use windows.forms?>
+        public bool LoadApparatus()
+        {
+            bool success = false;
+            var dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.InitialDirectory = "C:\\";
+            bool? result = dialog.ShowDialog();
+            if (result == true)
+            {
+
+                string fileName = dialog.FileName;
+                System.Windows.MessageBox.Show(fileName);
+
+                //var savedApplications = SimpleDesktopWindowSaver.getWindowAppsFromStaticFile(fileName);
+                //if (savedApplications != null)
+                //{
+
+                //}
+                //success = true;
+            }
+            return success;
+        }
+
+        private void setProperties(SavedAppications x)
+        {
+            TemplateName = x.TemplateName;
+            // ohh i have to match this shit... iF it exists.
+            // TODO: I may want to wrap the processes thing in its own model to separate my concersn more...
+            // But I already have a list of active windows... How Do I compare these things together? What should I do?
+            // Two things that I think this needs to do now: 
+                // First one is to load up applications that are currently not ON
+                // Second resize what is on to their appropriate areas... Wow this just got cool
+        }
+        #endregion
     }
 }

@@ -67,8 +67,6 @@ namespace DragAndDrop_2
                     // Creating and tracking a new Zone
                     currentZone = new ResizeZone();
                     currentZone.Opacity = .65;
-                    currentZone.MinWidth = 25;
-                    currentZone.MinHeight = 25;
                     Canvas.SetLeft(currentZone, startingPoint.X);
                     Canvas.SetTop(currentZone, startingPoint.Y);
 
@@ -139,7 +137,7 @@ namespace DragAndDrop_2
         {
             //TODO: We will either need some logic here where we rescale the size of the rectangle to be fitting of the actual size of the screen we are working on...
             // Or we can go into my view model and see if we should do it there.
-            //TODO wrap this event 1 more time where we send in the template name and template number of this main window:
+            // wrap this event 1 more time where we send in the template name and template number of this main window:
 
             _myModel.moveWindow(e);
         }
@@ -186,7 +184,12 @@ namespace DragAndDrop_2
             String s = String.Format("Height : {0} || Width : {1}", WindowHeight, WindowWidth);
             MessageBoxResult some = MessageBox.Show(s);
             _myModel.TemplateName = TemplateNameBox.Text;
-            _myModel.saveCurrentWindowState();
+            //_myModel.saveCurrentWindowState();
+        }
+
+        private void LoadButton_Click(object sender, RoutedEventArgs e)
+        {
+            _myModel.LoadApparatus();
         }
 
 

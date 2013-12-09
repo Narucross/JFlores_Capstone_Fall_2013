@@ -4,21 +4,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" MinWidth="50" MinHeight="50"   
+             MinWidth="50" MinHeight="50"
+             d:DesignHeight="300" d:DesignWidth="300"   
              
              Background="RoyalBlue"
              BorderBrush="Black" BorderThickness="4"
              HorizontalAlignment="Left" VerticalAlignment="Top"
+             
              
              MouseEnter="UserControl_MouseEnter" MouseLeave="UserControl_MouseLeave"
              MouseMove="UserControl_MouseMove" MouseDown="UserControl_MouseDown" MouseUp="UserControl_MouseUp" 
              
              AllowDrop="True" DragEnter="UserControl_DragEnter" DragLeave="UserControl_DragLeave" Drop="UserControl_Drop"
              >
+    <Canvas ClipToBounds="True">
+        <Border Name="MainBorder" BorderThickness="5" Background="White"
+             Width="35" Height="35" IsEnabled="False" HorizontalAlignment="Center">
+            <TextBlock Name="NumberConfiguration" FontSize="15" Text="{Binding DataContext.number}"                   />
+        </Border>
+    </Canvas>
     
-    <Border Name="MainBorder" BorderThickness="5" BorderBrush="Blue" Background="White"   
-            Canvas.Top="0" Canvas.Left="0" Width="25" Height="25" IsEnabled="False">
-        <TextBlock Name="NumberConfiguration" Width="auto" Height="25" FontSize="15" Text="{Binding DataContext.number}"/>
-    </Border>
-
+    
 </UserControl>

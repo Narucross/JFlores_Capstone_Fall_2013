@@ -133,6 +133,7 @@ Week 10: Until Tuesday
 		Fix bugs with resizing
 			Make canvas size, successfully mimic or represent the actual resolution and size of the Windows Desktop			
 			Try making sure that isEnabled is correct or that the focus can reach certain items...
+			Also Add thumbs to make it so that people are not stuck to the static sizes and allow deletes
 			
 		Loading saved files
 			Try seeing if they have a "Java static class that allows you to file browse{filter to txt or something}

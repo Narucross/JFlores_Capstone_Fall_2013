@@ -23,7 +23,17 @@ namespace Create_And_Move_Zones.Model.SavingFunctionality
         public static string WriteApplicationsToStaticFile(SavedAppications applications)
         {
             string pathToFile = String.Format(pathStringUnPopulated(), applications.TemplateName);
-            StreamWriter textWriter = new StreamWriter(pathToFile, true, Encoding.ASCII);
+            return WriteApplicationToFile(applications, pathToFile);
+        }
+
+        public static string WriteApplicationToFile(SavedAppications applications, string pathToFile)
+        {
+            FileStream overWriteFile = new FileStream(pathToFile, FileMode.Create);
+            StreamWriter textWriter = new StreamWriter(overWriteFile);
+            SavedAppications reFormatted = new SavedAppications();
+            reFormatted.TemplateName = applications.TemplateName;
+            reFormatted.SavedWindows = new List<SavedWindow>(
+                applications.SavedWindows.OrderBy(x => x.WindowPositionNumber)); ;
             string toObject = JsonConvert.SerializeObject(applications);
             textWriter.Write(toObject);
             textWriter.Flush();
@@ -36,13 +46,13 @@ namespace Create_And_Move_Zones.Model.SavingFunctionality
             SavedAppications application = null;
             StreamReader reader = new StreamReader(pathname);
             StringBuilder builder = new StringBuilder();
-            while (reader.EndOfStream)
+            while (!reader.EndOfStream)
             {
                 builder.Append(reader.ReadLine());
             }
             reader.Close();
             String line = builder.ToString();
-            if (! ("".Equals(line)) )
+            if (!String.IsNullOrEmpty(line))
             {
                 application = JsonConvert.DeserializeObject<SavedAppications>(line);
             }

@@ -18,14 +18,20 @@ namespace Create_And_Move_Zones.Model.DesktopApplicationModels
         public int Height { get; set; }
         public int Pos_X { get; set; }
         public int Pos_Y { get; set; }
+        public string FileName { get; set; }
+        public string Arguments { get; set; }
 
-        public SavedWindow(Process proc) {
+        public SavedWindow(Process proc)
+        {
             WindowProcessName = proc.ProcessName;
             WindowPositionNumber = 0;
             Width = 100;
             Height = 100;
             Pos_X = 100;
             Pos_Y = 100;
+            // Start Info            
+            FileName = WindowProcessName + ".exe";
+            Arguments = proc.StartInfo.Arguments;
         }
 
 

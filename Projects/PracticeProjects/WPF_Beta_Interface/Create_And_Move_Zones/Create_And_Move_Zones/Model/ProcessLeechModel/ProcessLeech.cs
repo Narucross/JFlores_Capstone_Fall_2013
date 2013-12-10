@@ -27,6 +27,7 @@ namespace Create_And_Move_Zones.Model.ProcessLeechModel
             return savedProcesses;
         }
 
+
         /// <summary>
         /// This calls upon all processes, and we make sure that each processes doesn't have a main window handler of the static pointer Zero
         /// This is so we know that the process at least has some zemblance of a window to work with, will expand this method as needed to ensure saftey
@@ -47,6 +48,10 @@ namespace Create_And_Move_Zones.Model.ProcessLeechModel
             Process[] array = Process.GetProcessesByName(processName);
             return array[0] != null ? array[0] : null;
         }
+
+        //public static Process[] getProcessByName(String processName) { 
+        //    return Process.GetProcessesByName(processName);
+        //}
 
         /// <summary>
         /// This returns the single process whose processID is equal to the savedWindow passed in.

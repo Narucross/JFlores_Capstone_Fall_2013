@@ -38,12 +38,13 @@ namespace DragAndDrop_2
         {
             if (e.Source == RectangleCreator)
             {
-                DrawingArea.Background = Brushes.Blue;
+                DrawingArea.Background = (Brush) this.FindResource("DrawingAreaColor");
                 currentState = drawingState.CreateNewBounds;
             }
             else if (e.Source == PanView)
             {
-                DrawingArea.Background = Brushes.Cyan;
+                DrawingArea.Background = (Brush)this.FindResource("DrawingAreaPanView");
+
                 currentState = drawingState.PanView;
             }
             _DrawingStateHandler.OnDrawingChangeInvoker(currentState);
@@ -179,17 +180,17 @@ namespace DragAndDrop_2
 
         private void SizeFinderAkASAVEEVENTUALLY_Click(object sender, RoutedEventArgs e)
         {
-            var WindowHeight = this.Height;
-            var WindowWidth = this.Width;
-            String s = String.Format("Height : {0} || Width : {1}", WindowHeight, WindowWidth);
-            MessageBoxResult some = MessageBox.Show(s);
-            _myModel.TemplateName = TemplateNameBox.Text;
-            //_myModel.saveCurrentWindowState();
+            //var WindowHeight = this.Height;
+            //var WindowWidth = this.Width;
+            //String s = String.Format("Height : {0} || Width : {1}", WindowHeight, WindowWidth);
+            //MessageBoxResult some = MessageBox.Show(s);
+            _myModel.saveCurrentWindowState();
         }
 
         private void LoadButton_Click(object sender, RoutedEventArgs e)
         {
             _myModel.LoadApparatus();
+            ListboxInitialization();
         }
 
 

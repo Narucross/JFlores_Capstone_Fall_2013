@@ -32,6 +32,7 @@ namespace BrowseFolderPrac
             if (result.ToString() ==                "OK")
                 label1.Text = dia.FileName;
 
+            //Depreciated 
             //if (folderBrowserDialog1.ShowDialog() == DialogResult)
             //this.label1.Text = folderBrowserDialog1.SelectedPath;
         }

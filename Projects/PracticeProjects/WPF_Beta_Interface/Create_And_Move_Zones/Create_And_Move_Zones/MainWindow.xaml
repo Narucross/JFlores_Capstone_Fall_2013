@@ -10,7 +10,13 @@
         H:765 W: 1595
     -->
     <Window.Resources>
-      
+
+        <SolidColorBrush x:Key="DrawingAreaColor" Color="Gray"/>
+        <SolidColorBrush x:Key="DrawingAreaPanView" Color="DarkSlateGray"/>
+        <SolidColorBrush x:Key="ApplicationTrackerColor" Color="Black"/>
+        <SolidColorBrush x:Key="AppTrackerForeGround" Color="Orange"/>
+        <SolidColorBrush x:Key="StatesColor" Color="Gold"/>
+
         <Style TargetType="Button">
             <Setter Property="FontSize" Value="26"/>
             <Setter Property="FontWeight" Value="Bold"/>
@@ -23,12 +29,12 @@
         </Style>
         
         <DataTemplate x:Key="ListBoxInformation">
-            <Border BorderThickness="2" BorderBrush="Aqua" Margin="2,3,2,3">
-                <StackPanel Background="Teal" Orientation="Horizontal">
+            <!--<Border BorderThickness="2" BorderBrush="Aqua" Margin="2,3,2,3">-->
+                <StackPanel Orientation="Horizontal" Margin="4,4,4,4">
                     <TextBlock Text="{Binding Path=WindowName, FallbackValue =empty}" Style="{StaticResource textBlock_1}"  />
                     <TextBlock Text="{Binding Path=ProcessIdNumber,FallbackValue=doubleEmpty}" Style="{StaticResource textBlock_1}" />
                 </StackPanel>
-            </Border>
+            <!--</Border>-->
         </DataTemplate>
         
     </Window.Resources>
@@ -44,38 +50,39 @@
         </Grid.RowDefinitions>
 
 
-        <Canvas Grid.Column="0" Grid.Row="0" Width="Auto" Height="Auto" Background="Blue"
+        <Canvas Grid.Column="0" Grid.Row="0" Width="Auto" Height="Auto" Background="{StaticResource DrawingAreaColor}"
                 Name="DrawingArea" MouseDown="DrawingArea_MouseDown" 
                 MouseMove="DrawingArea_MouseMove"
                 MouseUp="DrawingArea_MouseUp" ClipToBounds="True">
         </Canvas>
 
         <!-- Application Trackers-->
-        <ListBox Grid.Column="1" Grid.Row="0" Width="Auto" Height="Auto" Background="Green" Foreground="Orange" 
+        <Grid Grid.Column="1" Grid.Row="0" Background="{StaticResource ApplicationTrackerColor}" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="100*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="4,4,4,4"  Style="{StaticResource textBlock_1}" Foreground="White">Applications</TextBlock>
+            <ListBox Grid.Column="0" Grid.Row="1" 
+                Width="Auto"  Foreground="{StaticResource AppTrackerForeGround}" Background="{StaticResource ApplicationTrackerColor}" 
                  Name="ApplicationsTracker"
                  MouseMove="ApplicationsTracker_MouseMove"
                  ItemsSource="{Binding}" ItemTemplate="{StaticResource ListBoxInformation}">
-        </ListBox>
+            </ListBox>
+        </Grid>        
+        
 
 
         <!-- Button States -->
-        <WrapPanel Grid.Column="0" Grid.Row="1">
+        <WrapPanel Grid.Column="0" Grid.Row="1" Background="{StaticResource StatesColor}">
             <Button Name="RectangleCreator" Click="Pan_And_Selection_View_Click">Create Rectangle</Button>
             <Button Name="PanView" Click="Pan_And_Selection_View_Click">Select Rectangle</Button>
-            <Button Name="SizeFinderAkASAVEEVENTUALLY" Click="SizeFinderAkASAVEEVENTUALLY_Click">Press the button</Button>
+            <Button Name="SizeFinderAkASAVEEVENTUALLY" Click="SizeFinderAkASAVEEVENTUALLY_Click">Save Mutton</Button>
             <Button Name="LoadButton" Click="LoadButton_Click" >Load An Application</Button>
         </WrapPanel>
-
-        <!-- Save Template Name Areas -->
-        <StackPanel Grid.Column="1" Grid.Row="1">
-            <WrapPanel>
-                <TextBlock Name="DisplayTemplateName" Style="{StaticResource textBlock_1}">Tempalte Name:</TextBlock>
-                <TextBox Name="TemplateNameBox"  Margin="2,0,0,0" 
-                         FontSize="18" Width="{Binding ElementName=DisplayTemplateName, Path=ActualWidth}" Height="Auto"
-                         Text="Default"/>
-            </WrapPanel>
-        </StackPanel>
-
 
     </Grid>
 </Window>

@@ -44,7 +44,7 @@ namespace Views.Zones
             DataContext = this;
             IsEnabled = false;
             myInvoker = new Create_And_Move_Zones.Views.CustomEvents.DropApplicationAndResizeChain.DeskTopDroppedInvoker();
-            _regularColor = Brushes.Green;
+            _regularColor = Brushes.Indigo;
             MainBorder.BorderBrush = _regularColor;
             InitializeComponent();            
         }

@@ -67,7 +67,24 @@ namespace Create_And_Move_Zones.ViewModels
 
         public void saveCurrentWindowState()
         {
-            SimpleDesktopWindowSaver.WriteApplicationsToStaticFile(createSavedApplicationFromCurrentState());
+            // Old way
+            //SimpleDesktopWindowSaver.WriteApplicationsToStaticFile(createSavedApplicationFromCurrentState());
+            // /> Old way
+
+            // New Way -- SavedFileDialog()
+            var dialog = new Microsoft.Win32.SaveFileDialog();
+            dialog.InitialDirectory = "C:\\IDE\\SavedTemplates";
+            dialog.DefaultExt = ".txt";
+            var result = dialog.ShowDialog();
+            if (result == true)
+            {
+                string s = dialog.SafeFileName;
+                s = s.Remove(s.Length - dialog.DefaultExt.Length);
+                var savApp = createSavedApplicationFromCurrentState();
+                savApp.TemplateName = s;
+                SimpleDesktopWindowSaver.WriteApplicationToFile(savApp, dialog.FileName);
+            }
+            // /> New Way
         }
 
         private SavedAppications createSavedApplicationFromCurrentState()
@@ -82,27 +99,51 @@ namespace Create_And_Move_Zones.ViewModels
         #endregion
 
 
-        #region LoadFunctionality
+        #region Load Functionality
         //SHould I use windows.forms?>
         public bool LoadApparatus()
         {
             bool success = false;
             var dialog = new Microsoft.Win32.OpenFileDialog();
-            dialog.InitialDirectory = "C:\\";
+            dialog.InitialDirectory = "C:\\IDE\\SavedTemplates";
             bool? result = dialog.ShowDialog();
-            if (result == true)
-            {
+            //if (result == true)
+            //{
 
-                string fileName = dialog.FileName;
-                System.Windows.MessageBox.Show(fileName);
+            //    string fileName = dialog.FileName;
+            //    System.Windows.MessageBox.Show(fileName);
 
-                //var savedApplications = SimpleDesktopWindowSaver.getWindowAppsFromStaticFile(fileName);
-                //if (savedApplications != null)
-                //{
+            //    // TODO LOading FUnction
+            //    var savedApplications = SimpleDesktopWindowSaver.getWindowAppsFromStaticFile(fileName);
 
-                //}
-                //success = true;
-            }
+            //    if (savedApplications != null)
+            //    {
+            //        var newList = new List<SavedActiveWindow>(savedApplications.SavedWindows.Count);
+            //        foreach (SavedWindow current_Win in savedApplications.SavedWindows)
+            //        {
+            //            var process = ProcessLeech.getProcessByName(current_Win.WindowProcessName);
+            //            // It won't load up that particular file, yet Windows Management Instrumentation
+            //            if (process == null)
+            //            {
+            //                try
+            //                {
+            //                    process = System.Diagnostics.Process.Start(current_Win.WindowProcessName);
+            //                }
+            //                catch
+            //                {
+
+            //                }
+            //            }
+            //            if (process != null)
+            //            {
+            //                var bean = new SavedActiveWindow(process);
+            //                newList.Add(bean);
+            //            }
+            //        }
+            //        _SavedProcesses = newList;
+            //        success = true;
+            //    }
+            //}
             return success;
         }
 
@@ -113,8 +154,8 @@ namespace Create_And_Move_Zones.ViewModels
             // TODO: I may want to wrap the processes thing in its own model to separate my concersn more...
             // But I already have a list of active windows... How Do I compare these things together? What should I do?
             // Two things that I think this needs to do now: 
-                // First one is to load up applications that are currently not ON
-                // Second resize what is on to their appropriate areas... Wow this just got cool
+            // First one is to load up applications that are currently not ON
+            // Second resize what is on to their appropriate areas... Wow this just got cool
         }
         #endregion
     }

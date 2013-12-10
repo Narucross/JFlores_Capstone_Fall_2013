@@ -142,3 +142,31 @@ Week 10: Until Tuesday
 			Executables
 			Try an animation tag on panning{if bound??}
 			Tabbed Pane...
+			
+			
+	// =================================
+	// By Capstone defense @ 9:00 am
+	// =================================
+		Finish Saving:
+			- Save to a file, that I can execute with my dll :: http://www.codeproject.com/Tips/376631/How-to-make-your-own-file-type-for-your-Csharp-app
+			- Tabbed Pane, but why? {Because it gives me an excuse to have a list of savedApplication wrappers in Master, and slightly clears up the func behind saving}
+		Re-Size Func:
+			- Just to be nice
+			- Real-Scale
+			Dual Screens?
+			{
+				Kind of how real-scale works,,, Tabbed Within a Tabbed Pane
+			}
+		Selecting Rectangles...
+			- I could restrict it to Pan View only, but that is kind of weird...
+			- Users expect to be able to left click on a rectangle and have some additional func, like right-click option menus 
+				Or to be able to delete it...
+				So to be honest CreateRect should be an ONInvoke only (to simply this and have selectables be available)
+		Delete Rectangles...
+			- And/or De-Sync Windows {Gives creedance to the events below}
+		Animate pane movement:
+			- 2 Events to subscribe too, (Not property change because these are specific){
+				AnotherWindowHasEnteredThisDomain //AKA unsub
+				MimicMovement
+				}
+		

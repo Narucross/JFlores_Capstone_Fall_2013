@@ -8,7 +8,7 @@
 *.user
 *.sln.docstates
 *.sln
-App.config
+
 Vendor/
 
 # Build results

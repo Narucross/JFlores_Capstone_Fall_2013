@@ -139,7 +139,10 @@ namespace DragAndDrop_2
             //TODO: We will either need some logic here where we rescale the size of the rectangle to be fitting of the actual size of the screen we are working on...
             // Or we can go into my view model and see if we should do it there.
             // wrap this event 1 more time where we send in the template name and template number of this main window:
-
+            var all_Screens = System.Windows.Forms.Screen.PrimaryScreen;
+            var ratio = all_Screens.Bounds;
+            
+            
             _myModel.moveWindow(e);
         }
 

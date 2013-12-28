@@ -34,6 +34,8 @@ namespace Views.Zones
         public int number { get; set; }
         public Create_And_Move_Zones.Views.CustomEvents.DropApplicationAndResizeChain.DeskTopDroppedInvoker myInvoker { get; private set; }
 
+
+        
         #endregion
 
 

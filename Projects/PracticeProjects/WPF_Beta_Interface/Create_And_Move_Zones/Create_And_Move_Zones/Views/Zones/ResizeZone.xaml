@@ -3,12 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:s ="clr-namespace:Create_And_Move_Zones.Views.Zones.ZoneParts"
              mc:Ignorable="d" 
              MinWidth="50" MinHeight="50"
              d:DesignHeight="300" d:DesignWidth="300"   
              
              Background="RoyalBlue"
-             BorderBrush="Black" BorderThickness="4"
+             BorderBrush="Black" BorderThickness="2"
              HorizontalAlignment="Left" VerticalAlignment="Top"
              
              
@@ -17,12 +18,36 @@
              
              AllowDrop="True" DragEnter="UserControl_DragEnter" DragLeave="UserControl_DragLeave" Drop="UserControl_Drop"
              >
-    <Canvas ClipToBounds="True">
-        <Border Name="MainBorder" BorderThickness="5" Background="White"
+    <UserControl.Resources>
+        <ControlTemplate x:Key="ResizeDecoratorTemplate" TargetType="Control">
+            <Grid>
+                <s:ResizeThumb Height="3" Cursor="SizeNS" Margin="0 -4 0 0"
+           VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                <s:ResizeThumb Width="3" Cursor="SizeWE" Margin="-4 0 0 0"
+           VerticalAlignment="Stretch" HorizontalAlignment="Left"/>
+                <s:ResizeThumb Width="3" Cursor="SizeWE" Margin="0 0 -4 0"
+           VerticalAlignment="Stretch" HorizontalAlignment="Right"/>
+                <s:ResizeThumb Height="3" Cursor="SizeNS" Margin="0 0 0 -4"
+           VerticalAlignment="Bottom"  HorizontalAlignment="Stretch"/>
+                <s:ResizeThumb Width="7" Height="7" Cursor="SizeNWSE" Margin="-6 -6 0 0"
+           VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <s:ResizeThumb Width="7" Height="7" Cursor="SizeNESW" Margin="0 -6 -6 0"
+           VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                <s:ResizeThumb Width="7" Height="7" Cursor="SizeNESW" Margin="-6 0 0 -6"
+           VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                <s:ResizeThumb Width="7" Height="7" Cursor="SizeNWSE" Margin="0 0 -6 -6"
+           VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+            </Grid>
+        </ControlTemplate>
+    </UserControl.Resources>
+
+    <Grid ClipToBounds="True">
+        <Border Name="MainBorder" BorderThickness="4" Background="White" Panel.ZIndex="0"
              Width="35" Height="35" IsEnabled="False" HorizontalAlignment="Center">
             <TextBlock Name="NumberConfiguration" FontSize="15" Text="{Binding DataContext.number}"                   />
         </Border>
-    </Canvas>
+        <Control Template="{StaticResource ResizeDecoratorTemplate}"/>
+    </Grid>
     
     
 </UserControl>

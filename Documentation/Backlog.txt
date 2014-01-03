@@ -169,4 +169,21 @@ Week 10: Until Tuesday
 				AnotherWindowHasEnteredThisDomain //AKA unsub
 				MimicMovement
 				}
+				
+				
+
+// ===================================================================================================
+// Break
+// ===================================================================================================
+
+Things to do:
+Tabbed Pane : See picture on Desktop
+
+Load up applications
+MCV or something like that, should take me like 3 - 4 hours
+Screen resize calibrations 1 - ++ Hours
+Icons when dragged(drag preview){ 4 hours or drop it entirely if not possible
+	
+}
+Zoom in and out	???			
 		

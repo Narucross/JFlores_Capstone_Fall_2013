@@ -1,0 +1,97 @@
+﻿<Window x:Class="SmoothDesktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:y="clr-namespace:SmoothDesktop.Views.ZoneTempViews"
+        xmlns:drawing="clr-namespace:SmoothDesktop.Views"
+        Title="MainWindow" Height="350" Width="525">
+
+    <Window.Resources>
+        <DataTemplate x:Key="ListBoxInformation">
+            <!--<Border BorderThickness="2" BorderBrush="Aqua" Margin="2,3,2,3">-->
+            <StackPanel Orientation="Horizontal" Margin="4,4,4,4">
+                <TextBlock Text="{Binding Path=ProcessName, FallbackValue =empty}" />
+                <TextBlock Text="{Binding Path=PointerId,FallbackValue=doubleEmpty}" />
+            </StackPanel>
+            <!--</Border>-->
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="140"/>
+        </Grid.ColumnDefinitions>
+
+        <Menu IsMainMenu="True">
+            <!-- File Menu -->
+            <MenuItem Header="_File">
+                <MenuItem Header="Implement Current Template" IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="_New Template" />
+                <MenuItem Header="_Save" Click="MenuItem_Click"/>
+                <MenuItem Header="_Make A Copy" Click="MenuItem_Click_1"/>
+                <MenuItem Header="_Open" Click="MenuItem_Click_2"/>
+                <MenuItem Header="_Rename Template"/>
+                <Separator/>
+                <MenuItem Header="_Settings" IsEnabled="False"/>
+                <MenuItem>
+                    <!-- Power Button -->
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock Text="Shut Down" Name="junior" />
+                            <!--<Image Source="JFlow_PowerButton_1.png" Width="{Binding ElementName=junior, Path=ActualWidth}" Height="{Binding ElementName=junior, Path=ActualHeight}"/>-->
+                        </StackPanel>
+                    </MenuItem.Header>
+                </MenuItem>
+            </MenuItem>
+
+            <!-- View -->
+            <MenuItem Header="View">
+                <MenuItem Header="Stat Mode" IsCheckable="True"/>
+                <!--Shows the size of each rectangle-->
+                <MenuItem Header="Ruler" IsCheckable="True"/>
+                <!-- Shows a small line with how many pixels a screen size is-->
+                <MenuItem Header="Full Screen"/>
+                <!--Automatically maximizes the screen-->
+                <MenuItem Header="Table Mode" IsCheckable="True"/>
+            </MenuItem>
+
+            <!-- Edit -->
+            <MenuItem Header="Edit">
+                <MenuItem Header="Undo"/>
+                <MenuItem Header="Re-do"/>
+                <MenuItem Header="Delete"/>
+                <MenuItem Header="Cut"/>
+                <MenuItem Header="Copy"/>
+                <MenuItem Header="Paste"/>
+                <MenuItem Header="Favorite Sizes">
+                    <!--Need popup menus to delete and remove some-->
+                    <MenuItem Header="Add Favorite Size"/>
+                    <MenuItem Header="Remove Favorite Size"/>
+                </MenuItem>
+            </MenuItem>
+
+            <!-- Help -->
+            <MenuItem Header="Help">
+                <MenuItem Header="User Forums" IsEnabled="False"/>
+                <MenuItem Header="Online Template" IsEnabled="False"/>
+                <MenuItem Header="Bug Report" IsEnabled="False"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Applications stuff -->
+        <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">Applications</TextBlock>
+        <ListBox Grid.Column="1" Grid.Row="1"
+                 Name="ListBox_Applications"
+                ItemTemplate="{StaticResource ListBoxInformation}"
+                 >
+        </ListBox>
+
+        <y:ZoneTemplateMaster Name="MasterControl" Grid.Row="1" Grid.Column="0"/>
+        <!--<drawing:DrawingMatt Grid.Row="1" Grid.Column="0"/>-->
+    </Grid>
+</Window>

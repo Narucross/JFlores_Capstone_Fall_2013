@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BCD116E2-4E8A-4B61-B982-9C38E369CE76}</ProjectGuid>
+    <ProjectGuid>{E6D265E9-4105-481C-912E-44D4502E1525}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Create_And_Move_Zones</RootNamespace>
-    <AssemblyName>Create_And_Move_Zones</AssemblyName>
+    <RootNamespace>SmoothDesktop</RootNamespace>
+    <AssemblyName>SmoothDesktop</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -33,18 +33,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>StarBolt_Enterprise_1.ico</ApplicationIcon>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\Desktop\JFlores_Capstone_Fall_2013\vendor\Json50r8\Bin\Net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\..\vendor\Json50r8\Bin\Net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,24 +59,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\SavingFunctionality\SimpleDesktopWindowSaver.cs" />
-    <Compile Include="ViewModels\DataBeans\DesktopApplicationBean.cs" />
-    <Compile Include="ViewModels\MasterViewModel.cs" />
-    <Compile Include="Views\CustomEvents\DrawingStateEventChain\DrawingStateEventArgs.cs" />
-    <Compile Include="Views\CustomEvents\DrawingStateEventChain\DrawingStateEventInvoker.cs" />
-    <Compile Include="Views\CustomEvents\DropApplicationAndResizeChain\DeskTopDroppedEventArgs.cs" />
-    <Compile Include="Views\CustomEvents\DropApplicationAndResizeChain\DeskTopDroppedInvoker.cs" />
-    <Compile Include="Views\CustomEvents\PanOrResizeEventChain\ResizeOrPanEventArgs.cs" />
-    <Compile Include="Views\CustomEvents\PanOrResizeEventChain\ResizeOrPanEventInvoker.cs" />
-    <Compile Include="Views\Enums\drawingState.cs" />
-    <Compile Include="Model\DesktopApplicaitonModels\SavedActiveWindow.cs" />
-    <Compile Include="Model\DesktopApplicaitonModels\SavedApplications.cs" />
-    <Compile Include="Model\DesktopApplicaitonModels\SavedWindow.cs" />
-    <Compile Include="Model\ProcessLeechModel\ProcessLeech.cs" />
-    <Compile Include="Views\Zones\ResizeZone.xaml.cs">
-      <DependentUpon>ResizeZone.xaml</DependentUpon>
+    <Compile Include="JF_CustomEventHandlers\DrawingRectangles\DrawingZoneEventArgs.cs" />
+    <Compile Include="JF_CustomEventHandlers\DrawingRectangles\DrawingZoneMouseInvoker.cs" />
+    <Compile Include="ProcessUtilities\ProcessLeech.cs" />
+    <Compile Include="ViewModels\ProcessLeechViewModel.cs" />
+    <Compile Include="ViewModels\ScreenUtilityViewModel.cs" />
+    <Compile Include="ViewModels\SimpleDesktopWindowSaver.cs" />
+    <Compile Include="Views\DrawingMatt.xaml.cs">
+      <DependentUpon>DrawingMatt.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Zones\ZoneParts\ResizeThumb.cs" />
+    <Compile Include="Views\DrawingMattStates.cs" />
+    <Compile Include="Views\DrawingZones\DrawingZone.xaml.cs">
+      <DependentUpon>DrawingZone.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ZoneTempViews\ZoneTemplateMaster.xaml.cs">
+      <DependentUpon>ZoneTemplateMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ZoneTempViews\ZoneTemplateView.xaml.cs">
+      <DependentUpon>ZoneTemplateView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,12 +90,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\Zones\ResizeZone.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Views\DrawingMatt.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DrawingZones\DrawingZone.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ZoneTempViews\ZoneTemplateMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ZoneTempViews\ZoneTemplateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\CurrentProgram.cs" />
+    <Compile Include="Models\ZoneDimensions.cs" />
+    <Compile Include="Models\ZoneTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -126,7 +138,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="StarBolt_Enterprise_1.ico" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

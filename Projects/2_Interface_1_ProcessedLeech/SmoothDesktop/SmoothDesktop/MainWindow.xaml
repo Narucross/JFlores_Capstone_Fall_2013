@@ -91,7 +91,7 @@
                  >
         </ListBox>
 
-        <y:ZoneTemplateMaster Name="MasterControl" Grid.Row="1" Grid.Column="0"/>
-        <!--<drawing:DrawingMatt Grid.Row="1" Grid.Column="0"/>-->
+        <!--<y:ZoneTemplateMaster Name="MasterControl" Grid.Row="1" Grid.Column="0"/>-->
+        <drawing:DrawingMatt Grid.Row="1" Grid.Column="0"/>
     </Grid>
 </Window>

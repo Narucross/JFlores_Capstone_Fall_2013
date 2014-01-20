@@ -47,11 +47,21 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SmoothDesktop\FileUtil\FileAccessPoints.cs" />
+    <Compile Include="SmoothDesktop\FileUtil\FileReader.cs" />
+    <Compile Include="SmoothDesktop\FileUtil\FileWriter.cs" />
+    <Compile Include="SmoothDesktop\ZoneUtil\Template.cs" />
+    <Compile Include="SmoothDesktop\ZoneUtil\ZoneDimensions.cs" />
+    <Compile Include="SmoothDesktop\ZoneUtil\ZoneRepresentationBean.cs" />
     <Compile Include="StoredObjects\SavedApplications.cs" />
     <Compile Include="StoredObjects\SavedWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SmoothDesktop\SerializableObjects\" />
+    <Folder Include="SmoothDesktop\TempProcessLeech\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

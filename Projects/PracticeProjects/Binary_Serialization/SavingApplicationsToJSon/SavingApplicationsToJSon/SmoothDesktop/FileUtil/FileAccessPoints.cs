@@ -13,7 +13,7 @@ namespace SavingApplicationsToJSon.SmoothDesktop.FileUtil
     {
         public static string GetDefaultFileLocation(bool onDesktop = false)
         {
-            return onDesktop ? "C:\\_temp\\" : "G:\\Temp\\Cap_SavedTemplates";
+            return onDesktop ? "C:\\_temp\\" : "E:\\Temp\\Cap_SavedTemplates";
         }
     }//end of class
 

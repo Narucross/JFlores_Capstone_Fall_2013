@@ -1,17 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
+using System.Text;
+using JFloresConsoleUtil.JFloresCReader;
 using Newtonsoft.Json;
+using Store_Rectangles;
+using SavingApplicationsToJSon.MessingWithProcesses.ProcessManipulators;
 
-namespace Store_Rectangles
+namespace SavingApplicationsToJSon
 {
     class Program
     {
 
         static void Main(string[] args)
+        {
+            "Begining testing".P();
+            "This instance, we will test the saving function and look at what the filenames are written".P();
+            //OriginalMainMethod();
+            var processMaster = new ProcessMasters();
+            processMaster.WriteFileNamesToConsole();
+            endProgram();
+        }
+
+        private static void OriginalMainMethod()
         {
             Console.WriteLine("Beginning application");
             SavedAppications applicationTest = new SavedAppications();

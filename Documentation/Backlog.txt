@@ -187,3 +187,10 @@ Icons when dragged(drag preview){ 4 hours or drop it entirely if not possible
 }
 Zoom in and out	???			
 		
+
+
+// ===================================================================================================
+// Winter Quarter: Fallar
+// ===================================================================================================
+Icon sizes for use in the app list and when we want to publish dis thing
+http://stackoverflow.com/questions/3236115/which-icon-sizes-should-my-windows-applications-icon-include

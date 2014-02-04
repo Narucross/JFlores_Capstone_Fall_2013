@@ -69,6 +69,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DreApplicationListComponents\AppCards\DreAppCardModel.cs" />
     <Compile Include="DreApplicationListComponents\AppCards\DRE_AppCard.xaml.cs">
       <DependentUpon>DRE_AppCard.xaml</DependentUpon>
     </Compile>

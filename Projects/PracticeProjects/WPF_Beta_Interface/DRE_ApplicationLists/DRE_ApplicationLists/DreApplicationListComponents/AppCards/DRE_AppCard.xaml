@@ -26,9 +26,9 @@
                 <Border Grid.Column="0" BorderBrush="Indigo" BorderThickness="2" Background="CornflowerBlue" Width="32" Height="32" CornerRadius="6,6,6,6" Margin="2,0,2,0"></Border>
 
                 <StackPanel Name="AppDetails" Grid.Column="1">
-                    <TextBlock>Process Name</TextBlock>
-                    <TextBlock>Process ID</TextBlock>
-                    <TextBlock>Last Command Line Joe</TextBlock>
+                    <TextBlock Text="{Binding Path=ProcessName, FallbackValue =NoNameWasRetrieved}" ></TextBlock>
+                    <TextBlock Text="{Binding Path=CommandLine,FallbackValue=NoCommandsFound}"></TextBlock>
+                    <TextBlock Text="{Binding Path=ProcessId,FallbackValue=XamlNumberUnFound}"></TextBlock>
                 </StackPanel>
             </Grid>
 

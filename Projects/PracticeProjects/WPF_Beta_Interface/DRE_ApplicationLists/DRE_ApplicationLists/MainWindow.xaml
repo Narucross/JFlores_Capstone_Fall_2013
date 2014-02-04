@@ -1,8 +1,16 @@
 ﻿<Window x:Class="DRE_ApplicationLists.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        xmlns:appList="clr-namespace:DRE_ApplicationLists.DreApplicationListComponents.AppList"
+        xmlns:appCards="clr-namespace:DRE_ApplicationLists.DreApplicationListComponents.AppCards"
+        Title="Dre App List Project Tests stuff" Height="700" Width="800">
+    <StackPanel Name="MainStackPanel">
+<!--        <ListBox Name="MainListBox" Background="BurlyWood">-->
+<!--            <ListBox.ItemTemplate>-->
+<!--                <DataTemplate>-->
+<!--                    <appCards:DreAppCard />-->
+<!--                </DataTemplate>-->
+<!--            </ListBox.ItemTemplate>-->
+<!--        </ListBox>-->
+    </StackPanel>
 </Window>

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DRE_ApplicationLists.DreApplicationListComponents.AppCards
+﻿namespace DRE_ApplicationLists.DreApplicationListComponents.AppListDataModels
 {
     /// <summary>
     /// A model class just because supposidely it makes it easier to bind stuff
@@ -30,16 +24,11 @@ namespace DRE_ApplicationLists.DreApplicationListComponents.AppCards
 
         #endregion
 
-        public DreAppCardModel(string processName, int procId, string commandLine)
+        public DreAppCardModel(string processName = "", int procId = -1, string commandLine = "")
         {
             this.ProcessName = processName;
             this.CommandLine = commandLine;
             this.ProcessId = procId;
-        }
-
-        public DreAppCardModel()
-        {
-
         }
     }//end of class
 }//end of Namespace

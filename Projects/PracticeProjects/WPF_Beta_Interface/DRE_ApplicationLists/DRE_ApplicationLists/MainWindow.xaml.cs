@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DRE_ApplicationLists.DreApplicationListComponents.AppCards;
 using DRE_ApplicationLists.DreApplicationListComponents.AppList;
+using DRE_ApplicationLists.DreApplicationListComponents.AppListDataModels;
 
 namespace DRE_ApplicationLists
 {
@@ -29,7 +30,7 @@ namespace DRE_ApplicationLists
             var list = new DreAppList();
             list.MainListBox.ItemsSource = randomAppCards();
             MainStackPanel.Children.Add(list);
-//            MainListBox.ItemsSource = randomAppCards();
+            //            MainListBox.ItemsSource = randomAppCards();
         }
 
         private ObservableCollection<DreAppCardModel> randomAppCards()
@@ -38,7 +39,7 @@ namespace DRE_ApplicationLists
             var randy = new Random(12);
             for (var i = 0; i < 10; i++)
             {
-                collection.Add(new DreAppCardModel()
+                collection.Add(new DreAppCardModel
                 {
                     ProcessId = randy.Next(),
                     ProcessName = String.Format("Joshua {0}", randy.Next()),

@@ -24,7 +24,7 @@ namespace DRE_ApplicationLists.DreApplicationListComponents.AppList
         public DreAppList()
         {
             InitializeComponent();
-
         }
-    }
-}
+
+    }//end of class
+}//end of namespace

@@ -69,10 +69,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DreApplicationListComponents\AppCards\DreAppCardModel.cs" />
+    <Compile Include="DreApplicationListComponents\AppBehaviors\AppListDragBehavior.cs" />
+    <Compile Include="DreApplicationListComponents\AppBehaviors\AppListNewEntryReArrangeBehavior.cs" />
     <Compile Include="DreApplicationListComponents\AppCards\DRE_AppCard.xaml.cs">
       <DependentUpon>DRE_AppCard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DreApplicationListComponents\AppListDataModels\DreAppCardModel.cs" />
     <Compile Include="DreApplicationListComponents\AppList\DreAppList.xaml.cs">
       <DependentUpon>DreAppList.xaml</DependentUpon>
     </Compile>

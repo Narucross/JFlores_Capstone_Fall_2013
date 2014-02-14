@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net.Mime;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,6 +27,15 @@ namespace SavingApplicationsToJSon.SmoothDesktop.FileUtil
             textWriter.Close();
 
             return pathToFile;
+        }
+
+        public void WriteErrorsToFile(string pathToFile,string errorMessages)
+        {
+            var overWriteFile = new FileStream(pathToFile, FileMode.Create);
+            var textWriter = new StreamWriter(overWriteFile);
+            textWriter.Write(errorMessages);
+            textWriter.Flush();
+            textWriter.Close();
         }
 
     }//end of class

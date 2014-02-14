@@ -1,0 +1,9 @@
+What DataModelingExcercise does:
+	It was practice to learn (eventually) that WPF uses reflection for property change listeners to active bindings
+		This is essentially useless after reading 'WPF Unleashed'
+
+Saving Application to JSON is: (Meant to be used for: Beta Interfaces)
+	Kind of all over the place:
+	1) Abstracts a bit how to serialize in JSON
+	2) It takes processes and helps debug their limitations
+	3) Tests out some items on how to serialize...

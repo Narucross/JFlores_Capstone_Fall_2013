@@ -195,3 +195,4 @@ Zoom in and out	???
 Icon sizes for use in the app list and when we want to publish dis thing
 http://stackoverflow.com/questions/3236115/which-icon-sizes-should-my-windows-applications-icon-include
 Use Right-click >> Cascade Windows to help your presentation 
+From now On I am keeping a worklog on google docs @: https://docs.google.com/document/d/1g-zZ4wN_flcRB_UBsKsRbrz_4CdOc0ZY0UUKNVM-QZY/edit?usp=sharing

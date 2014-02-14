@@ -23,7 +23,13 @@
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
 
-                <Border Grid.Column="0" BorderBrush="Indigo" BorderThickness="2" Background="CornflowerBlue" Width="32" Height="32" CornerRadius="6,6,6,6" Margin="2,0,2,0"></Border>
+                <Border Grid.Column="0" BorderBrush="Indigo" BorderThickness="2" Background="CornflowerBlue" Width="32" Height="32" CornerRadius="6,6,6,6" Margin="2,0,2,0">
+                    <!--<Image></Image>
+                    So how can we make the source a function call to the command line? or to the default somethings???
+                    icon extractor converter? Giveth filename return icon?
+                    Or would just the path name suffice?
+                   -->
+                </Border>
 
                 <StackPanel Name="AppDetails" Grid.Column="1">
                     <TextBlock Text="{Binding Path=ProcessName, FallbackValue =NoNameWasRetrieved}" ></TextBlock>

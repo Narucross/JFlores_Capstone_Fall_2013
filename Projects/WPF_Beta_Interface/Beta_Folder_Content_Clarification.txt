@@ -1,0 +1,15 @@
+THis folder is for all 2nd generation interfaces
+
+
+2_interface are the ones I present before say meetings and presentations.
+	They are the conglomeration of the other folder projects in this folder.
+
+create and move series
+	Rectangles
+		Basic areas, before I realized that rectangles can't contain meta-data and thus are useless
+			For attempting resizing
+	Zones
+		Replaces the rectangles with zones and meta-data, also the final thing for fall quarter...
+
+WPF application drop
+	My first wpf program to implement drag and drop., List to canvas and it dumplicates the texts

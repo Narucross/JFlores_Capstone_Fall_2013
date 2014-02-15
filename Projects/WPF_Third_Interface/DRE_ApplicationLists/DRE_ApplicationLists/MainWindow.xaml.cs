@@ -1,19 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using DRE_ApplicationLists.DreApplicationListComponents.AppCards;
 using DRE_ApplicationLists.DreApplicationListComponents.AppList;
 using DRE_ApplicationLists.DreApplicationListComponents.AppListDataModels;
 
@@ -28,12 +15,12 @@ namespace DRE_ApplicationLists
         {
             InitializeComponent();
             var list = new DreAppList();
-            list.MainListBox.ItemsSource = randomAppCards();
+            list.MainListBox.ItemsSource = InitiatedListAppCards();
             MainStackPanel.Children.Add(list);
-            //            MainListBox.ItemsSource = randomAppCards();
+            //            MainListBox.ItemsSource = RandomAppCards();
         }
 
-        private ObservableCollection<DreAppCardModel> randomAppCards()
+        private ObservableCollection<DreAppCardModel> RandomAppCards()
         {
             var collection = new ObservableCollection<DreAppCardModel>();
             var randy = new Random(12);
@@ -47,6 +34,50 @@ namespace DRE_ApplicationLists
                 });
             }
             return collection;
+        }
+
+        private ObservableCollection<DreAppCardModel> InitiatedListAppCards()
+        {
+            return new ObservableCollection<DreAppCardModel>()
+            {
+                new DreAppCardModel
+                {
+                    ProcessId = 8420,
+                    ProcessName = "Notepad++",
+                    CommandLine = @"C:\Program Files (x86)\Notepad++\notepad++.exe"
+                },
+                new DreAppCardModel
+                {
+                    ProcessId = 9088,
+                    ProcessName = "notepad",
+                    CommandLine = @"C:\Windows\system32\notepad.exe"
+                },
+                new DreAppCardModel
+                {
+                    ProcessId = 6348,
+                    ProcessName = "devenv",
+                    CommandLine = @"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\devenv.exe"
+                },
+                // Broken ones
+                new DreAppCardModel
+                {
+                    ProcessId = 8420,
+                    ProcessName = "Notepad++",
+                    CommandLine = @"C:\Program Files(x86)\Notepad++\notepad++.exe"
+                },
+                new DreAppCardModel
+                {
+                    ProcessId = 9088,
+                    ProcessName = "notepad",
+                    CommandLine = @"C:\Windows\system2\notepad.exe"
+                },
+                new DreAppCardModel
+                {
+                    ProcessId = 6348,
+                    ProcessName = "devenv",
+                    CommandLine = @"C:\Program Files(x86)\Microsoft Visual Studio 12.0\Common7\IDE\devenv.exe"
+                }
+            };
         }
     }
 }

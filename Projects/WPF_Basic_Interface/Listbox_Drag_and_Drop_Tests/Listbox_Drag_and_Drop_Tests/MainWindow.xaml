@@ -1,0 +1,31 @@
+﻿<Window x:Class="Listbox_Drag_and_Drop_Tests.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:Listbox_Drag_and_Drop_Tests"
+        Title="Store Example" Height="350" Width="525">
+    <Window.Resources>
+        <DataTemplate x:Key="ListboxCard">
+           <vm:ItemCard/>
+        </DataTemplate>
+    </Window.Resources>
+    <DockPanel LastChildFill="True" >
+        <DockPanel.DataContext>
+            <vm:StoreFunctionalityViewModel/>
+        </DockPanel.DataContext>
+
+        <StackPanel DockPanel.Dock="Left" Background="BurlyWood">
+            <TextBlock>Store inbox 1</TextBlock>
+            <ListBox Name="Store1" ItemTemplate="{StaticResource ListboxCard}"></ListBox>
+            <TextBlock>Store inbox 2</TextBlock>
+
+            <ListBox Name="Store2" ItemTemplate="{StaticResource ListboxCard}" />
+
+        </StackPanel>
+        <StackPanel Name="CheckoutStackPanel" Background="CornflowerBlue">
+            <TextBlock>Checkout</TextBlock>
+
+            <ListBox Name="CheckoutListBox" ItemTemplate="{StaticResource ListboxCard}"/>
+
+        </StackPanel>
+    </DockPanel>
+</Window>

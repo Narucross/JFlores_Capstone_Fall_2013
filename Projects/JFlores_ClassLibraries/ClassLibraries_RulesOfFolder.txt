@@ -1,0 +1,3 @@
+For future reference:
+Only include projects in here that are like Class Libraries that will be used in other parts of the projects
+So don;t include one off projects, try to include well distringuished classes, or final, defined ones.

@@ -1,0 +1,22 @@
+For future reference:
+You have a lot of independence in this Folder,
+The only requirement is that the wpf project or interface here is meant to be simple and dirty.
+More or less this is a proof-of-concept folder where the background tasks are more important than the
+front end.
+
+For now it is the default area for practice projects, for commits
+// ==================================================================================================
+// ==================================================================================================
+	Projects Dymistified(Descriptions of what each project does or attempts todo):
+
+1_ProofOfConcept_ProcessLeech
+	A console interface that grabs a notepad process, and moves it slightly...
+	Maybe I should test out the cascade method here...
+
+WPF_Basic_Interface
+	The original realization of the ProcessLeech class, to get my feet wet with wpf and 
+		Processes...
+  
+Listbox Drag Behavior??
+-- What to finish:
+	Basic Layout, adding behaviors...

@@ -18,7 +18,7 @@ namespace Listbox_Drag_and_Drop_Tests
     /// <summary>
     /// Interaction logic for ItemCard.xaml
     /// </summary>
-    public partial class ItemCard : Page
+    public partial class ItemCard
     {
         public ItemCard()
         {

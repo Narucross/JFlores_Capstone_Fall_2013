@@ -1,0 +1,12 @@
+Rules for what is allowed in here(For future reference and encapsulation):
+	Programs that will be directly implemented in the third interface :: Desktop-Principal
+	Such as: Detailed Mode, and Small Mode, 
+
+Demystified: 
+	Skeleton_Desktop_Complete_Mode
+		This is the main Applications look, so far without functionality 
+	Skeleton_Quick_Manage_Mode
+		This is the smaller more inspired by divy format...
+			I am thinking when it comes to small mode that indeed I should restricted or represent the drawing in a proportional instead of an all sense...
+				So there should be either a proportional grid, proportional canvas.
+					And if time permit replace the natural built in highlight of windows to sometimes allow resizes... Just a suggestion on how platform.areo works.

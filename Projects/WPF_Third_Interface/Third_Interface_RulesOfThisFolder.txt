@@ -1,3 +1,0 @@
-Rules for what is allowed in here(For future reference and encapsulation):
-	Programs that will be directly implemented in the third interface :: Desktop-Principal
-	Such as: Detailed Mode, and Small Mode, 

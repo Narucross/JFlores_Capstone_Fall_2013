@@ -53,6 +53,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behavior\FrameworkElementDragBehavior.cs" />
+    <Compile Include="Behavior\FrameworkElementDropBehavior.cs" />
     <Compile Include="Behavior\Implementation\IMvvmBehavior.cs" />
     <Compile Include="Behavior\Implementation\IMvvmDraggable.cs" />
     <Compile Include="Behavior\Implementation\IMvvmDroppable.cs" />

@@ -3,6 +3,51 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Desktop Principal" Height="350" Width="525">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="140"/>
+        </Grid.ColumnDefinitions>
+        <!--       Menu     -->
+        <!--       Menu     -->
+        <!--       Menu     -->
+        <Menu IsMainMenu="True" >
+            <MenuItem Header="_File">
+                <MenuItem Header="Implement Current Template" ></MenuItem>
+                <MenuItem Header="_New Template" Command="New"></MenuItem>
+                <MenuItem Command="Save"></MenuItem>
+                <MenuItem Header="Make a copy" Command="SaveAs"></MenuItem>
+                <MenuItem Command="Open"></MenuItem>
+                <MenuItem Header="_Rename Template"></MenuItem>
+                <MenuItem Command="Close"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="View">
+                <MenuItem Header="Stat Mode"></MenuItem>
+                <MenuItem Header="Ruler" IsCheckable="True"></MenuItem>
+                <MenuItem Header="Full Screen"></MenuItem>
+                <MenuItem Header="Tabled Mode" IsCheckable="True"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Command="Undo"></MenuItem>
+                <MenuItem Command="Redo"></MenuItem>
+                <MenuItem Command="Delete"></MenuItem>
+                <MenuItem Command="Cut"></MenuItem>
+                <MenuItem Command="Copy"></MenuItem>
+                <MenuItem Command="Paste"></MenuItem>
+                <MenuItem Header="Favoirite Sizes"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="Email Developer"></MenuItem>
+                <MenuItem Header="Online Templates"></MenuItem>
+                <MenuItem Header="Bug report"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <!--       Menu     -->
+        <!--       Menu     -->
+        <!--       Menu     -->
         
     </Grid>
 </Window>

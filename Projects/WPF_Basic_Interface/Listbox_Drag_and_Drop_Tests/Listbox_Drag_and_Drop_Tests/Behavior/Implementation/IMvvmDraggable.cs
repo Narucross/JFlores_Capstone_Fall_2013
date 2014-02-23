@@ -11,5 +11,5 @@
         /// <param name="obj"></param>
         /// <returns>false-if remove failed by exception</returns>
         bool Remove(object obj);
-    }
-}
+    }//end of interface
+}//end of namespace

@@ -30,7 +30,7 @@ namespace Listbox_Drag_and_Drop_Tests.Behavior
 
         private void AssociatedObject_DragEnter_Handler(object sender, DragEventArgs e)
         {
-            //ToDO what to do when you recieve a drag event
+            //TODO Accepting a drag
 
             throw new NotImplementedException();
         }

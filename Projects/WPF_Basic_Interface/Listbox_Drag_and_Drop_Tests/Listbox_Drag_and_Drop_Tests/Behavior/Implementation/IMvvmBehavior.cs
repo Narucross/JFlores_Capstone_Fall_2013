@@ -12,5 +12,5 @@ namespace Listbox_Drag_and_Drop_Tests.Behavior.Implementation
         /// </summary>
         /// <returns>True if the Associated object of the behavior's datacontex implements the IMvvmParadigm interface</returns>
         bool IsAssociatedObjectMvvm();
-    }
+    }//end of interface
 }//end of class
